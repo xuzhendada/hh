@@ -1,0 +1,36 @@
+ext {
+    //dependencies
+    constraintlayout = 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
+
+    navigation_fragment_ktx = 'androidx.navigation:navigation-fragment-ktx:2.2.0-rc02'
+    lifecycle_version = '2.2.0-rc02'
+    lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    room_version = '2.1.0-alpha04'
+    room_coroutines = "androidx.room:room-coroutines:$room_version"
+    room_kapt = "androidx.room:room-compiler:$room_version"
+
+    work_runtime_ktx = 'androidx.work:work-runtime-ktx:2.3.0-alpha03'
+
+    retrofit_version = '2.6.2'
+    retrofit = "com.squareup.retrofit2:retrofit:$retrofit_version"
+    retrofit_moshi = "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    logging_interceptor = 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+
+    moshi_version = '1.9.2'
+    moshi = "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    moshi_kapt = "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    glide_version = '4.10.0'
+    glide = "com.github.bumptech.glide:glide:$glide_version"
+    glide_okhttp = "com.github.bumptech.glide:okhttp3-integration:$glide_version"
+    gilde_kapt = "com.github.bumptech.glide:compiler:$glide_version"
+
+    smart_refresh = 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-4'
+    lottie = 'com.airbnb.android:lottie:3.1.0'
+
+    mmkv = 'com.tencent:mmkv:1.0.22'
+
+    arouter_api = 'com.alibaba:arouter-api:1.5.0'
+}
