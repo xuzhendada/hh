@@ -1,16 +1,15 @@
 package com.xz.hh.vm
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.xz.hh.RetrofitUtil
-import com.xz.hh.api.wanRequest
-import com.xz.hh.request.ListRequest
-import com.xz.hh.response.WanResponse
+import com.xz.hh.api.ApiService
+import com.xz.hh.data.wanRequest
+import com.xz.hh.data.response.ListResponse
+import com.xz.hh.data.WanResponse
 
 class WanViewModel : ViewModel() {
-    private val listData: MutableLiveData<WanResponse<List<ListRequest>>> by lazy {
-        MutableLiveData<WanResponse<List<ListRequest>>>().also {
+    private val listData: MutableLiveData<WanResponse<List<ListResponse>>> by lazy {
+        MutableLiveData<WanResponse<List<ListResponse>>>().also {
             wanListRequest()
         }
     }
@@ -18,9 +17,9 @@ class WanViewModel : ViewModel() {
     fun subscribeList() = listData
 
     fun wanListRequest() {
-        wanRequest<List<ListRequest>> {
+        wanRequest<List<ListResponse>> {
             loader {
-                RetrofitUtil.mApi.getList()
+                ApiService.mApi.getList()
             }
             onRequestResult {
                 listData.value = it

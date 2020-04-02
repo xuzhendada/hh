@@ -1,4 +1,4 @@
-package com.xz.hh
+package com.xz.hh.ktx
 
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
@@ -34,4 +34,5 @@ class ImageLoader(activity: FragmentActivity) {
     }
 }
 
-fun FragmentActivity.imageLoader(): ImageLoader = ImageLoader(this)
+fun FragmentActivity.imageLoader(): ImageLoader =
+    ImageLoader(this)

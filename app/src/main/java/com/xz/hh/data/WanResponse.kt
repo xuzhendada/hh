@@ -1,4 +1,4 @@
-package com.xz.hh.response
+package com.xz.hh.data
 
 import com.squareup.moshi.JsonClass
 

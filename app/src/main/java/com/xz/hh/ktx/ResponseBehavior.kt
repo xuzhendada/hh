@@ -1,10 +1,9 @@
 package com.xz.hh.ktx
 
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.xz.hh.response.WanResponse
+import com.xz.hh.data.WanResponse
 
 class ResponseBehavior<T> {
     private var success: ((T) -> Unit)? = null

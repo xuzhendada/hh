@@ -1,12 +1,11 @@
-package com.xz.hh
+package com.xz.hh.api
 
-import com.xz.hh.api.Api
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-class RetrofitUtil private constructor() {
+class ApiService private constructor() {
 
     companion object {
         private val mRetrofit: Retrofit by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
