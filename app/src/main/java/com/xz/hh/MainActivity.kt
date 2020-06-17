@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 /**
  * Created by xuz on 2020/4/1 23:14
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private val mWanViewModel by lazy {
         viewModels<WanViewModel>().value
@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        click.setOnClickListener {
-            mWanViewModel.wanListRequest()
-        }
+//        click.setOnClickListener {
+//            mWanViewModel.wanListRequest()
+//        }
         mWanViewModel.subscribeList().applyResponse(this) {
             onSuccess {
                 Log.e("TAG", "$it")
@@ -31,6 +31,9 @@ class MainActivity : AppCompatActivity() {
                 Log.e("TAG", "ErrorCode:$errorCode ErrorMsg:$message")
             }
         }
+    }
 
+    override fun viewDrawn() {
+        mWanViewModel.wanListRequest()
     }
 }

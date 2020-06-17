@@ -1,6 +1,7 @@
 package com.xz.hh.api
 
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
@@ -13,6 +14,9 @@ class ApiService private constructor() {
                 OkHttpClient.Builder()
                     .connectTimeout(1000, TimeUnit.MILLISECONDS)
                     .readTimeout(1000, TimeUnit.MILLISECONDS)
+                    .addInterceptor(HttpLoggingInterceptor().apply {
+                        level = HttpLoggingInterceptor.Level.BODY
+                    })
                     .build()
 
             Retrofit.Builder()
