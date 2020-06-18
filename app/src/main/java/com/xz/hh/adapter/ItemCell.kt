@@ -2,7 +2,6 @@ package com.xz.hh.adapter
 
 import android.view.View
 import androidx.annotation.LayoutRes
-import androidx.recyclerview.widget.RecyclerView
 
 interface ItemCell {
     @LayoutRes

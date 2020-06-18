@@ -19,9 +19,6 @@ class StableAdapter(
         override fun areContentsTheSame(oldItem: ItemCell, newItem: ItemCell) =
             oldItem.itemContent() == oldItem.itemContent()
 
-        override fun getChangePayload(oldItem: ItemCell, newItem: ItemCell): Any? {
-            return "update"
-        }
     }).build()
 ) : RecyclerView.Adapter<RecyclerVH>() {
     private val differ = AsyncListDiffer(AdapterListUpdateCallback(this), config)
@@ -55,7 +52,7 @@ class StableAdapter(
         //empty
     }
 
-    private fun currentList() = differ.currentList
+    fun currentList(): MutableList<ItemCell> = differ.currentList
 
     fun submitList(
         @IntRange(from = 0) position: Int, temp: List<ItemCell>,

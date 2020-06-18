@@ -6,6 +6,7 @@ import com.xz.hh.adapter.ItemCell
 import com.xz.hh.adapter.RecyclerSupport
 import com.xz.hh.adapter.RecyclerVH
 import com.xz.hh.data.response.ListResponse
+import com.xz.hh.ktx.debounceClick
 import kotlinx.android.synthetic.main.item_wan.view.*
 
 class WanCell(val listResponse: ListResponse) : ItemCell {
@@ -21,6 +22,12 @@ class WanCell(val listResponse: ListResponse) : ItemCell {
 }
 
 class WanVH(itemView: View, support: RecyclerSupport) : RecyclerVH(itemView, support) {
+    init {
+        itemView.debounceClick {
+            support.simpleCallback?.invoke(adapterPosition)
+        }
+    }
+
     override fun bind(itemCell: ItemCell, payloads: MutableList<Any>) {
         super.bind(itemCell, payloads)
         if (itemCell is WanCell) {

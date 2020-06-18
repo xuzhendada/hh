@@ -1,17 +1,16 @@
 package com.xz.hh
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.xz.hh.adapter.ItemCell
 import com.xz.hh.adapter.StableAdapter
 import com.xz.hh.cells.WanCell
 import com.xz.hh.ktx.ImageLoader
 import com.xz.hh.ktx.applyResponse
 import com.xz.hh.ktx.createStableAdapter
+import com.xz.hh.ktx.toast
 import com.xz.hh.vm.WanViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,6 +29,10 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         mAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@MainActivity)
+            onSimpleCallback { position ->
+                val itemCell = mAdapter.currentList()[position] as WanCell
+                toast(itemCell.listResponse.toString())
+            }
         }
         recycler.apply {
             adapter = mAdapter
