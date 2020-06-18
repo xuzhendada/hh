@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.xz.hh"
-        minSdkVersion 16
+        minSdkVersion 20
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -39,6 +39,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+
     kapt room_kapt
     kapt moshi_kapt
     kapt gilde_kapt
@@ -56,4 +57,5 @@ dependencies {
     api arouter_api
     api smart_refresh
     api lottie
+    api recyclerView
 }
