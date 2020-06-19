@@ -14,10 +14,10 @@ class StableAdapter(
         DiffUtil.ItemCallback<ItemCell>() {
 
         override fun areItemsTheSame(oldItem: ItemCell, newItem: ItemCell) =
-            oldItem.layoutId() == newItem.layoutId() && oldItem.itemId() == oldItem.itemId()
+            oldItem.layoutId() == newItem.layoutId() && oldItem.itemId() == newItem.itemId()
 
         override fun areContentsTheSame(oldItem: ItemCell, newItem: ItemCell) =
-            oldItem.itemContent() == oldItem.itemContent()
+            oldItem.itemContent() == newItem.itemContent()
 
     }).build()
 ) : RecyclerView.Adapter<RecyclerVH>() {
