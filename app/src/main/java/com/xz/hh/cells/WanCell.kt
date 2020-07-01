@@ -24,7 +24,7 @@ class WanCell(val listResponse: ListResponse) : ItemCell {
 class WanVH(itemView: View, support: RecyclerSupport) : RecyclerVH(itemView, support) {
     init {
         itemView.debounceClick {
-            support.simpleCallback?.invoke(adapterPosition)
+            support.simpleCallback?.invoke(layoutPosition)
         }
     }
 

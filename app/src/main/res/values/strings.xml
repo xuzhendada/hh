@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">hh</string>
+    <string name="sample_recycler">普通的recyclerView</string>
+    <string name="paging_recycler">paging recyclerView</string>
 </resources>

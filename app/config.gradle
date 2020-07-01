@@ -37,9 +37,9 @@ ext {
 
     paging_version = "3.0.0-alpha01"
     // For Kotlin use paging-runtime-ktx
-    paging= "androidx.paging:paging-runtime:$paging_version"
+    paging = "androidx.paging:paging-runtime:$paging_version"
     // For Kotlin use paging-common-ktx
-    paging_common= "androidx.paging:paging-common:$paging_version"
+    paging_common = "androidx.paging:paging-common:$paging_version"
     // For Kotlin use paging-rxjava2-ktx
-    paging_rxjava2= "androidx.paging:paging-rxjava2:$paging_version"
+    paging_rxjava2 = "androidx.paging:paging-rxjava2:$paging_version"
 }

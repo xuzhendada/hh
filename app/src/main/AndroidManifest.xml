@@ -17,10 +17,13 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.SampleRecyclerActivity"
+            android:screenOrientation="portrait" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
