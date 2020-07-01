@@ -1,3 +1,2 @@
-include ':my'
 rootProject.name='hh'
 include ':app'
