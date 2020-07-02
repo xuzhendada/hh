@@ -51,7 +51,7 @@ data class ArticleResponse(
     @Json(name = "selfVisible")
     val selfVisible: Int,
     @Json(name = "shareDate")
-    val shareDate: Long,
+    val shareDate: Long?,
     @Json(name = "shareUser")
     val shareUser: String,
     @Json(name = "superChapterId")

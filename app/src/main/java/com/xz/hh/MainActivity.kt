@@ -11,6 +11,7 @@ import com.xz.hh.adapter.StableAdapter
 import com.xz.hh.cells.BtnCell
 import com.xz.hh.cells.WanCell
 import com.xz.hh.ktx.*
+import com.xz.hh.ui.PageRecyclerActivity
 import com.xz.hh.ui.SampleRecyclerActivity
 import com.xz.hh.vm.WanViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,7 +32,7 @@ class MainActivity : BaseActivity() {
                         startActivity<SampleRecyclerActivity>()
                     }
                     getString(R.string.paging_recycler) -> {
-                        toast(getString(R.string.paging_recycler))
+                        startActivity<PageRecyclerActivity>()
                     }
                 }
             }
