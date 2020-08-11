@@ -15,6 +15,9 @@ import com.xz.hh.ui.PageRecyclerActivity
 import com.xz.hh.ui.SampleRecyclerActivity
 import com.xz.hh.vm.WanViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.browse
+import org.jetbrains.anko.share
+import org.jetbrains.anko.startActivity
 
 /**
  * Created by xuz on 2020/4/1 23:14
@@ -32,7 +35,7 @@ class MainActivity : BaseActivity() {
                         startActivity<SampleRecyclerActivity>()
                     }
                     getString(R.string.paging_recycler) -> {
-                        startActivity<PageRecyclerActivity>()
+                        browse("https://www.baidu.com", false)
                     }
                 }
             }

@@ -1,10 +1,8 @@
 package com.xz.hh.ktx
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.FragmentActivity
 
 /**
  * 防抖点击
@@ -23,7 +21,6 @@ inline fun View.debounceClick(
     }
 }
 
-@SuppressLint("ShowToast")
-inline fun Context.toast(txt: String) {
+fun Context.toast(txt: String) {
     Toast.makeText(applicationContext, txt, Toast.LENGTH_LONG).show()
 }

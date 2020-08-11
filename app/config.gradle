@@ -42,4 +42,7 @@ ext {
     paging_common = "androidx.paging:paging-common:$paging_version"
     // For Kotlin use paging-rxjava2-ktx
     paging_rxjava2 = "androidx.paging:paging-rxjava2:$paging_version"
+    //anko
+    anko_version = '0.10.8'
+    anko = "org.jetbrains.anko:anko:$anko_version"
 }
