@@ -11,6 +11,7 @@ import com.xz.hh.adapter.StableAdapter
 import com.xz.hh.cells.BtnCell
 import com.xz.hh.cells.WanCell
 import com.xz.hh.ktx.*
+import com.xz.hh.permission.request
 import com.xz.hh.ui.PageRecyclerActivity
 import com.xz.hh.ui.SampleRecyclerActivity
 import com.xz.hh.vm.WanViewModel
@@ -34,8 +35,17 @@ class MainActivity : BaseActivity() {
                     getString(R.string.sample_recycler) -> {
                         startActivity<SampleRecyclerActivity>()
                     }
-                    getString(R.string.paging_recycler) -> {
-                        browse("https://www.baidu.com", false)
+                    getString(R.string.request_permission) -> {
+                        request(
+                            android.Manifest.permission.CAMERA
+                        ) {
+                            onGranted {
+                                toast("SUCCESS")
+                            }
+                            onDenied {
+                                toast("DENIED")
+                            }
+                        }
                     }
                 }
             }
@@ -50,7 +60,7 @@ class MainActivity : BaseActivity() {
         super.viewDrawn()
         val itemCellList = mutableListOf<ItemCell>()
         itemCellList.add(BtnCell(getString(R.string.sample_recycler)))
-        itemCellList.add(BtnCell(getString(R.string.paging_recycler)))
+        itemCellList.add(BtnCell(getString(R.string.request_permission)))
         mAdapter.submitList(itemCellList)
     }
 }
