@@ -26,6 +26,10 @@
         <activity
             android:name=".ui.PageRecyclerActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.TopFoldActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PropertyDetailTheme" />
 
         <uses-library
             android:name="org.apache.http.legacy"

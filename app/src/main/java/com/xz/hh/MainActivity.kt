@@ -14,11 +14,13 @@ import com.xz.hh.ktx.*
 import com.xz.hh.permission.request
 import com.xz.hh.ui.PageRecyclerActivity
 import com.xz.hh.ui.SampleRecyclerActivity
+import com.xz.hh.ui.TopFoldActivity
 import com.xz.hh.vm.WanViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.share
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 /**
  * Created by xuz on 2020/4/1 23:14
@@ -47,6 +49,9 @@ class MainActivity : BaseActivity() {
                             }
                         }
                     }
+                    getString(R.string.coordinator_layout)->{
+                        startActivity<TopFoldActivity>()
+                    }
                 }
             }
         }
@@ -61,6 +66,7 @@ class MainActivity : BaseActivity() {
         val itemCellList = mutableListOf<ItemCell>()
         itemCellList.add(BtnCell(getString(R.string.sample_recycler)))
         itemCellList.add(BtnCell(getString(R.string.request_permission)))
+        itemCellList.add(BtnCell(getString(R.string.coordinator_layout)))
         mAdapter.submitList(itemCellList)
     }
 }
