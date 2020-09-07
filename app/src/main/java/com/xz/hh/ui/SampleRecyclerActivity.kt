@@ -8,10 +8,7 @@ import com.xz.hh.R
 import com.xz.hh.adapter.ItemCell
 import com.xz.hh.adapter.StableAdapter
 import com.xz.hh.cells.WanCell
-import com.xz.hh.ktx.ImageLoader
-import com.xz.hh.ktx.applyResponse
-import com.xz.hh.ktx.createStableAdapter
-import com.xz.hh.ktx.toast
+import com.xz.hh.ktx.*
 import com.xz.hh.vm.WanViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,7 +23,8 @@ class SampleRecyclerActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_sample_recycler)
+        toolbar(getString(R.string.sample_recycler))
         mAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@SampleRecyclerActivity)
             onSimpleCallback { position ->

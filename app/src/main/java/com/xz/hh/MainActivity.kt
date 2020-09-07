@@ -30,6 +30,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        toolbar("首页", showHomeAsUp = false)
         mAdapter = createStableAdapter {
             onSimpleCallback { position ->
                 val itemCell = mAdapter.currentList()[position] as BtnCell
@@ -39,7 +40,8 @@ class MainActivity : BaseActivity() {
                     }
                     getString(R.string.request_permission) -> {
                         request(
-                            android.Manifest.permission.CAMERA
+                            android.Manifest.permission.CAMERA,
+                            android.Manifest.permission.START_VIEW_PERMISSION_USAGE
                         ) {
                             onGranted {
                                 toast("SUCCESS")
@@ -49,7 +51,7 @@ class MainActivity : BaseActivity() {
                             }
                         }
                     }
-                    getString(R.string.coordinator_layout)->{
+                    getString(R.string.coordinator_layout) -> {
                         startActivity<TopFoldActivity>()
                     }
                 }
