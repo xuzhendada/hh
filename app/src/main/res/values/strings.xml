@@ -3,4 +3,5 @@
     <string name="sample_recycler">普通的recyclerView</string>
     <string name="request_permission">请求权限</string>
     <string name="coordinator_layout">顶部折叠布局</string>
+    <string name="page_layout">page3.0</string>
 </resources>

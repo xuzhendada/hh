@@ -35,13 +35,10 @@ class MainActivity : BaseActivity() {
             onSimpleCallback { position ->
                 val itemCell = mAdapter.currentList()[position] as BtnCell
                 when (itemCell.itemId()) {
-                    getString(R.string.sample_recycler) -> {
-                        startActivity<SampleRecyclerActivity>()
-                    }
-                    getString(R.string.request_permission) -> {
+                    "${R.string.sample_recycler}" -> startActivity<SampleRecyclerActivity>()
+                    "${R.string.request_permission}" ->
                         request(
-                            android.Manifest.permission.CAMERA,
-                            android.Manifest.permission.START_VIEW_PERMISSION_USAGE
+                            android.Manifest.permission.CAMERA
                         ) {
                             onGranted {
                                 toast("SUCCESS")
@@ -50,10 +47,8 @@ class MainActivity : BaseActivity() {
                                 toast("DENIED")
                             }
                         }
-                    }
-                    getString(R.string.coordinator_layout) -> {
-                        startActivity<TopFoldActivity>()
-                    }
+                    "${R.string.coordinator_layout}" -> startActivity<TopFoldActivity>()
+                    "${R.string.page_layout}" -> startActivity<PageRecyclerActivity>()
                 }
             }
         }
@@ -66,9 +61,10 @@ class MainActivity : BaseActivity() {
     override fun viewDrawn() {
         super.viewDrawn()
         val itemCellList = mutableListOf<ItemCell>()
-        itemCellList.add(BtnCell(getString(R.string.sample_recycler)))
-        itemCellList.add(BtnCell(getString(R.string.request_permission)))
-        itemCellList.add(BtnCell(getString(R.string.coordinator_layout)))
+        itemCellList.add(BtnCell(R.string.sample_recycler))
+        itemCellList.add(BtnCell(R.string.request_permission))
+        itemCellList.add(BtnCell(R.string.coordinator_layout))
+        itemCellList.add(BtnCell(R.string.page_layout))
         mAdapter.submitList(itemCellList)
     }
 }

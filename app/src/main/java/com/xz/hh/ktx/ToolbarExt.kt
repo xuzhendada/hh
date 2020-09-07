@@ -1,6 +1,7 @@
 package com.xz.hh.ktx
 
 
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.xz.hh.R
@@ -21,6 +22,10 @@ fun AppCompatActivity.toolbar(title: CharSequence? = null, showHomeAsUp: Boolean
         it.setHomeButtonEnabled(true)
         it.title = title
     }
+}
+
+fun AppCompatActivity.toolbar(@StringRes title: Int, showHomeAsUp: Boolean = true) {
+    toolbar(getString(title, showHomeAsUp))
 }
 
 /**
