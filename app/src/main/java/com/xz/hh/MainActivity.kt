@@ -27,9 +27,10 @@ import org.jetbrains.anko.toast
  */
 class MainActivity : BaseActivity() {
     private lateinit var mAdapter: StableAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+    override fun layoutId() = R.layout.activity_main
+
+    override fun init() {
         toolbar("首页", showHomeAsUp = false)
         mAdapter = createStableAdapter {
             onSimpleCallback { position ->

@@ -7,9 +7,10 @@ import com.xz.hh.ktx.toolbar
 
 
 class PageRecyclerActivity : BaseActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_page_recycler)
+
+    override fun layoutId() = R.layout.activity_page_recycler
+
+    override fun init() {
         toolbar(R.string.page_layout)
     }
 }

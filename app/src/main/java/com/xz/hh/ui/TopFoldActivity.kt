@@ -22,9 +22,10 @@ class TopFoldActivity : BaseActivity() {
         viewModels<WanViewModel>().value
     }
     private lateinit var mAdapter: StableAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_top_fold)
+
+    override fun layoutId() = R.layout.activity_top_fold
+
+    override fun init() {
         toolbar()
         appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             toolbarTitle(if (abs(verticalOffset) >= appBarLayout.totalScrollRange) getString(R.string.coordinator_layout) else "")

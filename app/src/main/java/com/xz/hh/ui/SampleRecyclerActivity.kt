@@ -21,9 +21,9 @@ class SampleRecyclerActivity : BaseActivity() {
     }
     private lateinit var mAdapter: StableAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sample_recycler)
+    override fun layoutId() = R.layout.activity_sample_recycler
+
+    override fun init() {
         toolbar(getString(R.string.sample_recycler))
         mAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@SampleRecyclerActivity)
