@@ -10,17 +10,27 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.SampleRecyclerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.PageRecyclerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.TopFoldActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentTheme" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

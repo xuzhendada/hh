@@ -32,6 +32,20 @@ class ImageLoader(activity: FragmentActivity) {
                 .transform(CircleCrop())
         ).into(view)
     }
+
+    fun display(
+        view: ImageView,
+        url: String?,
+        placeholder: Int = 0,//佔位符
+        error: Int = 0//錯誤圖片
+    ) {
+        mRequestManger.load(url).apply(
+            mRequestOptions
+                .autoClone()
+                .placeholder(placeholder)
+                .error(error)
+        ).into(view)
+    }
 }
 
 fun FragmentActivity.imageLoader(): ImageLoader =
