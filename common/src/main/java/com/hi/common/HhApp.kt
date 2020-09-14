@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 class HhApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        ARouter.openDebug()
+        ARouter.openLog()
         ARouter.openDebug()
         ARouter.init(this)
     }

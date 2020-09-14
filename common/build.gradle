@@ -6,14 +6,16 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion compileSdk
     buildToolsVersion buildSdk
-
     defaultConfig {
         minSdkVersion minSdk
         targetSdkVersion targetSdk
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {

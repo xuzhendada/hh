@@ -4,7 +4,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
+import com.hi.common.constant.RouterPath
 import com.hi.common.ktx.createStableAdapter
+import com.hi.common.ktx.navigate
 import com.hi.common.ktx.toolbar
 import com.hi.main.permission.request
 import com.hi.main.ui.PageRecyclerActivity
@@ -28,7 +30,7 @@ class Main : BaseActivity() {
             onSimpleCallback { position ->
                 val itemCell = mAdapter.currentList()[position] as BtnCell
                 when (itemCell.itemId()) {
-                    "${R.string.sample_recycler}" -> startActivity<SampleRecyclerActivity>()
+                    "${R.string.sample_recycler}" -> navigate(RouterPath.SAMPLE_RECYCLER)
                     "${R.string.request_permission}" ->
                         request(
                             android.Manifest.permission.CAMERA
@@ -40,8 +42,8 @@ class Main : BaseActivity() {
                                 toast("DENIED")
                             }
                         }
-                    "${R.string.coordinator_layout}" -> startActivity<TopFoldActivity>()
-                    "${R.string.page_layout}" -> startActivity<PageRecyclerActivity>()
+                    "${R.string.coordinator_layout}" -> navigate(RouterPath.TOP_fOLD)
+                    "${R.string.page_layout}" -> navigate(RouterPath.PAGE_RECYCLER)
                 }
             }
         }

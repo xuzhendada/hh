@@ -2,9 +2,11 @@ package com.hi.main.ui
 
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
+import com.hi.common.constant.RouterPath
 import com.hi.common.ktx.*
 import com.hi.main.R
 import com.hi.main.cells.WanCell
@@ -14,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_sample_recycler.*
 /**
  * 简单的recyclerView实现
  */
+@Route(path = RouterPath.SAMPLE_RECYCLER)
 class SampleRecyclerActivity : BaseActivity() {
     private val mWanViewModel by lazy {
         viewModels<WanViewModel>().value
