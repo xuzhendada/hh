@@ -42,9 +42,11 @@ class MainActivity : BaseActivity() {
                             android.Manifest.permission.CAMERA
                         ) {
                             onGranted {
+                                Log.e("TAG","AAA")
                                 toast("SUCCESS")
                             }
                             onDenied {
+                                Log.e("TAG","$it")
                                 toast("DENIED")
                             }
                         }

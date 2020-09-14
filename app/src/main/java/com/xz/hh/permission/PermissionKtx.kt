@@ -1,6 +1,5 @@
 package com.xz.hh.permission
 
-import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.content.ContextCompat
@@ -33,15 +32,11 @@ private fun getPermissionFragment(activity: FragmentActivity): PermissionFragmen
     var fragment = activity.supportFragmentManager.findFragmentByTag(TAG)
     if (fragment == null) {
         fragment = PermissionFragment()
-        activity.supportFragmentManager.beginTransaction().add(
-            fragment,
-            TAG
-        ).commitNow()
+        activity.supportFragmentManager.beginTransaction().add(fragment, TAG).commitNow()
     }
     return fragment as PermissionFragment
 }
 
-@SuppressLint("ObsoleteSdkInt")
 fun FragmentActivity.isGranted(permission: String) =
     Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
             ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
