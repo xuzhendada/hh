@@ -5,7 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:name=".HhApp"
+        android:name="com.hi.common.HhApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,23 +14,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.SampleRecyclerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.PageRecyclerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.TopFoldActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/TransparentTheme" />
-
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

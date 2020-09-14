@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion buildSdk
+
+    defaultConfig {
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = 1.8
+    }
+}
+
+dependencies {
+    kapt room_kapt
+    kapt moshi_kapt
+    kapt gilde_kapt
+    api constraintlayout
+    api navigation_fragment_ktx
+    api room_coroutines
+    api lifecycle_extensions
+    api lifecycle_viewmodel_ktx
+    api work_runtime_ktx
+    api retrofit_moshi
+    api logging_interceptor
+    api moshi
+    api glide_okhttp
+    api mmkv
+    api arouter_api
+    api smart_refresh
+    api lottie
+    api recyclerView
+    api paging
+    api paging_common
+    api paging_rxjava2
+    api anko
+    api material
+}
