@@ -1,2 +1,4 @@
+include ':main'
+include ':common'
 rootProject.name='hh'
 include ':app'

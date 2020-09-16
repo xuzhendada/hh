@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hi.main">
+
+    <application>
+        <activity
+            android:name=".ui.PageRecyclerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SampleRecyclerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hi.main.ui.TopFoldActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentTheme" />
+    </application>
+
+</manifest>
