@@ -41,6 +41,8 @@ buildscript {
         mmkv = 'com.tencent:mmkv:1.0.22'
 
         arouter_api = 'com.alibaba:arouter-api:1.5.0'
+        arouter_kapt = 'com.alibaba:arouter-compiler:1.2.2'
+
         recyclerView = 'com.android.support:recyclerview-v7:28.0.0-alpha1'
 
         paging_version = "3.0.0-alpha01"
