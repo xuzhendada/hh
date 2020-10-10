@@ -3,7 +3,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textAllCaps">false</item>
+        <item name="textAllCaps">false</item>
         <item name="android:windowBackground">@color/colorBlank</item>
         <item name="android:statusBarColor">@color/colorStatusBar</item>
         <item name="android:windowLightStatusBar" tools:targetApi="M">true</item>
