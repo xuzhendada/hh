@@ -1,5 +1,6 @@
 package com.xz.hh
 
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
