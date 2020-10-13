@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -12,8 +12,6 @@ android {
         targetSdkVersion targetSdk
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
     }
 
     buildTypes {
@@ -28,16 +26,6 @@ android {
 }
 
 dependencies {
-    if (test2_dev.toBoolean()) {
-        implementation project(path: ':test2')
-    }
-    if (test1_dev.toBoolean()) {
-        implementation project(path: ':test1')
-    }
-    if (main_dev.toBoolean()) {
-        implementation project(path: ':main')
-    }
-    if (common_dev.toBoolean()) {
-        implementation project(path: ':common')
-    }
+    kapt arouter_kapt
+    compileOnly project(path: ':common')
 }
