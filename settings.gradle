@@ -1,4 +1,15 @@
-include ':main'
-include ':common'
-rootProject.name='hh'
+rootProject.name = 'hh'
 include ':app'
+if (test2_dev.toBoolean()) {
+    include ':test2'
+}
+if (test1_dev.toBoolean()) {
+    include ':test1'
+}
+if (main_dev.toBoolean()) {
+    include ':main'
+}
+if (common_dev.toBoolean()) {
+    include ':common'
+}
+

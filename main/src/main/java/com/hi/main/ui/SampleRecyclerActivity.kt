@@ -8,6 +8,7 @@ import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
 import com.hi.common.constant.RouterPath
 import com.hi.common.ktx.*
+import com.hi.common.widget.UniversalItemDecoration
 import com.hi.main.R
 import com.hi.main.cells.WanCell
 import com.xz.hh.vm.WanViewModel
@@ -35,6 +36,13 @@ class SampleRecyclerActivity : BaseActivity() {
             }
         }
         recycler.apply {
+            addItemDecoration(
+                UniversalItemDecoration(
+                    this@SampleRecyclerActivity,
+                    dimen(R.dimen.margin_left),
+                    dimen(R.dimen.margin_right)
+                )
+            )
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@SampleRecyclerActivity)
         }
