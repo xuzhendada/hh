@@ -1,4 +1,4 @@
-package com.hi.common.paging
+package com.hi.common.data
 
 import com.squareup.moshi.JsonClass
 
