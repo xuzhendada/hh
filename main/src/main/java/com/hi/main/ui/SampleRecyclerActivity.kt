@@ -11,7 +11,7 @@ import com.hi.common.ktx.*
 import com.hi.common.widget.UniversalItemDecoration
 import com.hi.main.R
 import com.hi.main.cells.WanCell
-import com.xz.hh.vm.WanViewModel
+import com.hi.main.vm.WanViewModel
 import kotlinx.android.synthetic.main.activity_sample_recycler.*
 
 /**

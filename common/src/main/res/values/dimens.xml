@@ -3,4 +3,7 @@
     <dimen name="item_decoration">1dp</dimen>
     <dimen name="margin_left">15dp</dimen>
     <dimen name="margin_right">30dp</dimen>
+    <dimen name="page_margin_right">20dp</dimen>
+    <dimen name="page_margin_left">20dp</dimen>
+
 </resources>

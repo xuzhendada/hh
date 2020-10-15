@@ -4,7 +4,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class WanResponse<T>(
-    val data: T? = null,
+    val data: T,
     val errorCode: Int,
     val errorMsg: String?
 )

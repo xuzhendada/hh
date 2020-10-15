@@ -1,10 +1,7 @@
-package com.xz.hh.vm
+package com.hi.main.vm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
 import com.hi.common.api.ApiService
 import com.hi.common.data.wanRequest
 import com.hi.common.data.response.ListResponse
@@ -29,11 +26,4 @@ class WanViewModel : ViewModel() {
             }
         }
     }
-
-//    val pager by lazy {
-//        Pager(
-//            config = PagingConfig(20, 1),
-//            pagingSourceFactory = { PageSource() }
-//        ).flow.cachedIn(viewModelScope)
-//    }
 }
