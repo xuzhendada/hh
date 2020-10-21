@@ -1,4 +1,4 @@
-package com.xz.hh
+package com.hi.main.cells
 
 import android.view.View
 import androidx.annotation.StringRes
@@ -6,6 +6,7 @@ import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.RecyclerSupport
 import com.hi.common.adapter.RecyclerVH
 import com.hi.common.ktx.debounceClick
+import com.hi.main.R
 import kotlinx.android.synthetic.main.item_btn.view.*
 import org.jetbrains.anko.textResource
 

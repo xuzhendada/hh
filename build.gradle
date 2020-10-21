@@ -2,10 +2,10 @@
 
 buildscript {
     ext {
-        compileSdk = 29
-        buildSdk = '29.0.2'
-        minSdk = 21
-        targetSdk = 29
+//        compileSdk = 29
+//        buildSdk = '29.0.2'
+//        minSdk = 21
+//        targetSdk = 29
         kotlin_version = '1.4.10'
 
         constraintlayout = 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
@@ -70,7 +70,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.2'
+        classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.4'
         classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0'
