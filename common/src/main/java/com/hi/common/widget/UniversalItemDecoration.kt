@@ -1,5 +1,6 @@
 package com.hi.common.widget
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Rect
@@ -7,12 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hi.common.R
 import com.hi.common.ktx.dimen
 
+/**
+ * 下划线
+ */
 class UniversalItemDecoration(
     context: Context,
     private val leftMargin: Int = 0,
     private val rightMargin: Int = 0,
     dividerHeightResId: Int = R.dimen.item_decoration
 ) : RecyclerView.ItemDecoration() {
+    @SuppressLint("UseCompatLoadingForDrawables")
     private val divider = context.getDrawable(R.drawable.shape_divider_item)
     private val bounds = Rect()
     private val dividerHeight = context.dimen(dividerHeightResId)

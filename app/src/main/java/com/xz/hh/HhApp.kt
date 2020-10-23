@@ -1,10 +1,12 @@
-package com.hi.common
+package com.xz.hh
 
 import android.app.Application
 import android.content.ComponentCallbacks2
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class HhApp : Application() {
     override fun onCreate() {
         super.onCreate()

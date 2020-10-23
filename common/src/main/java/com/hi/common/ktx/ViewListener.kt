@@ -13,7 +13,7 @@ inline fun View.debounceClick(
 ) {
     var latestClick = 0L
     setOnClickListener {
-        var currentClick = System.currentTimeMillis()
+        val currentClick = System.currentTimeMillis()
         if (currentClick - latestClick > skipTime) {
             latestClick = currentClick
             click.invoke(it)

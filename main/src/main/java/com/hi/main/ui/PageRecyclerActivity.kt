@@ -39,10 +39,10 @@ class PageRecyclerActivity : BaseActivity() {
                 )
             )
         }
-        mPagingViewMode.getArticleData().observe(this, {
+        mPagingViewMode.getArticleData().observe(this) {
             lifecycleScope.launchWhenCreated {
                 mAdapter.submitData(it)
             }
-        })
+        }
     }
 }

@@ -2,20 +2,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion compileSdk
-    buildToolsVersion buildSdk
+    compileSdkVersion 30
+    buildToolsVersion '29.0.3'
     defaultConfig {
-        minSdkVersion minSdk
-        targetSdkVersion targetSdk
+        minSdkVersion 26
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
-            }
-        }
     }
 
     buildTypes {
@@ -34,13 +30,14 @@ android {
 }
 
 dependencies {
-    kapt room_kapt
     kapt moshi_kapt
     kapt gilde_kapt
+    kapt hilt_kapt
+    kapt hilt_androidx_kapt
+    kapt room_kapt
+    api fragment_ktx
     api constraintlayout
-    api navigation_fragment_ktx
     api room_coroutines
-    api lifecycle_extensions
     api lifecycle_viewmodel_ktx
     api work_runtime_ktx
     api retrofit_moshi
@@ -51,14 +48,11 @@ dependencies {
     api arouter_api
     api smart_refresh
     api lottie
-    api recyclerView
     api paging
     api paging_common
     api paging_rxjava2
-    api anko
     api material
-    kapt hilt_kapt
-    kapt hilt_androidx_kapt
-    implementation hilt_android
-    implementation hilt_lifecycle_viewmodel
+    api hilt_android
+    api hilt_lifecycle_viewmodel
+    api lifecycle_extensions
 }

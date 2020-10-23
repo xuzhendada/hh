@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 kapt {
     arguments {
@@ -9,11 +10,11 @@ kapt {
     }
 }
 android {
-    compileSdkVersion compileSdk
-    buildToolsVersion buildSdk
+    compileSdkVersion 30
+    buildToolsVersion '29.0.3'
     defaultConfig {
-        minSdkVersion minSdk
-        targetSdkVersion targetSdk
+        minSdkVersion 26
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
     }
@@ -31,5 +32,9 @@ android {
 
 dependencies {
     kapt arouter_kapt
+    kapt hilt_kapt
+    kapt hilt_androidx_kapt
+    compileOnly hilt_android
+    compileOnly hilt_lifecycle_viewmodel
     compileOnly project(path: ':common')
 }
