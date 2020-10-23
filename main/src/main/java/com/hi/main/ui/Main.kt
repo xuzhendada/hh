@@ -40,7 +40,7 @@ class Main : BaseActivity() {
             onSimpleCallback { position ->
                 val itemCell = mAdapter.currentList()[position] as BtnCell
                 when (itemCell.itemId()) {
-//                    getString(R.string.sample_recycler) -> navigate(RouterPath.SAMPLE_RECYCLER)
+                    getString(R.string.sample_recycler) -> navigate(RouterPath.SAMPLE_RECYCLER)
                     getString(R.string.request_permission) -> {
                         permissionsFactory.launch(
                             arrayOf(
@@ -57,8 +57,8 @@ class Main : BaseActivity() {
                             }
                         }
                     }
-//                    getString(R.string.coordinator_layout) -> navigate(RouterPath.TOP_fOLD)
-//                    getString(R.string.page_layout) -> navigate(RouterPath.PAGE_RECYCLER)
+                    getString(R.string.coordinator_layout) -> navigate(RouterPath.TOP_fOLD)
+                    getString(R.string.page_layout) -> navigate(RouterPath.PAGE_RECYCLER)
                     getString(R.string.hilt_network) -> {
                         hiltViewModel.getArticle().handleResult(this@Main) {
                             onSuccess {
