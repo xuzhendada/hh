@@ -2,7 +2,6 @@ package com.hi.common.data
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.observe
 
 class HhResultHandler<T>() {
     private var success: ((T) -> Unit)? = null
@@ -29,7 +28,7 @@ inline fun <E> LiveData<HhResult<E>>.handleResult(
     owner: LifecycleOwner, crossinline handler: HhResultHandler<E>.() -> Unit
 ) {
     val responseHandler = HhResultHandler<E>().apply(handler)
-    this.observe(owner) {
+    observe(owner) {
         when (it) {
             is HhResult.Success -> responseHandler.invokeSuccess(it.value)
             is HhResult.Failure -> responseHandler.invokeFailure(it.throwable)

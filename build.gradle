@@ -28,9 +28,6 @@ buildscript {
         arouter_kapt = 'com.alibaba:arouter-compiler:1.2.2'
         //知乎图片选择框架
         material = "com.google.android.material:material:1.2.1"
-        //anko
-        anko_version = '0.10.8'
-        anko = "org.jetbrains.anko:anko:$anko_version"
         //jetpack
         //hilt
         hilt_version = '2.29.1-alpha'
