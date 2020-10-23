@@ -8,7 +8,9 @@ import com.hi.common.adapter.StableAdapter
 import com.hi.common.constant.RouterPath
 import com.hi.common.data.handleResult
 import com.hi.common.ktx.createStableAdapter
+import com.hi.common.ktx.intent.ActivityForResultFactory
 import com.hi.common.ktx.intent.RequestPermissionsFactory
+import com.hi.common.ktx.intent.intentOf
 import com.hi.common.ktx.navigate
 import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
@@ -32,6 +34,9 @@ class Main : BaseActivity() {
     @Inject
     lateinit var permissionsFactory: RequestPermissionsFactory
 
+    @Inject
+    lateinit var activityForResultFactory: ActivityForResultFactory
+
     override fun layoutId() = R.layout.activity_main
 
     override fun init() {
@@ -40,7 +45,16 @@ class Main : BaseActivity() {
             onSimpleCallback { position ->
                 val itemCell = mAdapter.currentList()[position] as BtnCell
                 when (itemCell.itemId()) {
-                    getString(R.string.sample_recycler) -> navigate(RouterPath.SAMPLE_RECYCLER)
+                    getString(R.string.sample_recycler) -> activityForResultFactory.launch(
+                        intentOf<SampleRecyclerActivity>()
+                    ) {
+                        onOk {
+
+                        }
+                        onCancel {
+
+                        }
+                    }
                     getString(R.string.request_permission) -> {
                         permissionsFactory.launch(
                             arrayOf(
