@@ -9,6 +9,7 @@ import com.hi.common.constant.RouterPath
 import com.hi.common.data.handleResult
 import com.hi.common.ktx.createStableAdapter
 import com.hi.common.ktx.navigate
+import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
 import com.hi.main.R
 import com.hi.main.cells.BtnCell
@@ -17,7 +18,6 @@ import com.hi.main.vm.HiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.jetbrains.anko.toast
 
 /**
  * Created by xuz on 2020/4/1 23:14
@@ -37,17 +37,16 @@ class Main : BaseActivity() {
                 val itemCell = mAdapter.currentList()[position] as BtnCell
                 when (itemCell.itemId()) {
                     "${R.string.sample_recycler}" -> navigate(RouterPath.SAMPLE_RECYCLER)
-                    "${R.string.request_permission}" ->
+                    "${R.string.request_permission}" -> {
                         request(
                             android.Manifest.permission.CAMERA
                         ) {
                             onGranted {
-                                toast("SUCCESS")
                             }
                             onDenied {
-                                toast("DENIED")
                             }
                         }
+                    }
                     "${R.string.coordinator_layout}" -> navigate(RouterPath.TOP_fOLD)
                     "${R.string.page_layout}" -> navigate(RouterPath.PAGE_RECYCLER)
                     "${R.string.hilt_network}" -> {
