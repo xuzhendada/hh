@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 kapt {
     arguments {
@@ -31,5 +32,9 @@ android {
 
 dependencies {
     kapt arouter_kapt
+    kapt hilt_kapt
+    kapt hilt_androidx_kapt
+    compileOnly hilt_android
+    compileOnly hilt_lifecycle_viewmodel
     compileOnly project(path: ':common')
 }
