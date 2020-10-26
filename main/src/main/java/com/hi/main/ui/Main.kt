@@ -1,10 +1,13 @@
 package com.hi.main.ui
 
 import androidx.activity.viewModels
+import androidx.core.os.bundleOf
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
+import com.hi.common.constant.BundleConst
 import com.hi.common.constant.RouterPath
 import com.hi.common.data.handleResult
 import com.hi.common.ktx.createStableAdapter
@@ -21,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
+import kotlin.concurrent.thread
 
 /**
  * Created by xuz on 2020/4/1 23:14
@@ -37,24 +41,32 @@ class Main : BaseActivity() {
     @Inject
     lateinit var activityForResultFactory: ActivityForResultFactory
 
+    private val liveData = MutableLiveData<Int>()
+
     override fun layoutId() = R.layout.activity_main
 
     override fun init() {
         toolbar("首页", false)
+        thread {
+            liveData.postValue(10)
+        }
         mAdapter = createStableAdapter {
             onSimpleCallback { position ->
                 val itemCell = mAdapter.currentList()[position] as BtnCell
                 when (itemCell.itemId()) {
-                    getString(R.string.sample_recycler) -> activityForResultFactory.launch(
-                        intentOf<SampleRecyclerActivity>()
-                    ) {
-                        onOk {
+                    getString(R.string.sample_recycler) ->
+                        activityForResultFactory.launch(
+                            intentOf<SampleRecyclerActivity>(
+                                bundleOf(BundleConst.SAMPLE_ACTIVITY to "FROM MAIN")
+                            )
+                        ) {
+                            onOk {
+                                toast(it?.getStringExtra(BundleConst.SAMPLE_ACTIVITY) ?: "")
+                            }
+                            onCancel {
 
+                            }
                         }
-                        onCancel {
-
-                        }
-                    }
                     getString(R.string.request_permission) -> {
                         permissionsFactory.launch(
                             arrayOf(
