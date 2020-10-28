@@ -32,7 +32,6 @@ class ArticleVH(itemView: View, support: RecyclerSupport) : RecyclerVH(itemView,
         super.bind(itemCell, payloads)
         if (itemCell is ArticleCell) {
             itemView.article.text = itemCell.articleResponse.title
-            Log.e("TAG", itemCell.articleResponse.title)
         }
     }
 }
