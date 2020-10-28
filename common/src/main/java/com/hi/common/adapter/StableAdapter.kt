@@ -76,5 +76,6 @@ class StableAdapter(
 
     fun submitList(temp: List<ItemCell>, callback: () -> Unit = {}) {
         differ.submitList(temp)
+        callback.invoke()
     }
 }
