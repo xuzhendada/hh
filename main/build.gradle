@@ -8,6 +8,7 @@ kapt {
     arguments {
         arg("AROUTER_MODULE_NAME", project.getName())
     }
+    generateStubs = true
 }
 android {
     compileSdkVersion 30
@@ -27,6 +28,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = 1.8
+    }
+    buildFeatures {
+        dataBinding true
     }
 }
 

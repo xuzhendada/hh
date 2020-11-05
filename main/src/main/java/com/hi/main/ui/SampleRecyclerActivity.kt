@@ -1,11 +1,16 @@
 package com.hi.main.ui
 
+import android.app.Activity
+import android.content.Intent
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
+import com.hi.common.constant.BundleConst
 import com.hi.common.constant.RouterPath
 import com.hi.common.ktx.*
 import com.hi.common.widget.UniversalItemDecoration
@@ -35,6 +40,7 @@ class SampleRecyclerActivity : BaseActivity() {
                 toast(itemCell.listResponse.toString())
             }
         }
+        toast(intent.getStringExtra(BundleConst.SAMPLE_ACTIVITY) ?: "")
         recycler.apply {
             addItemDecoration(
                 UniversalItemDecoration(
@@ -59,6 +65,23 @@ class SampleRecyclerActivity : BaseActivity() {
             }
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.sample_activity_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) =
+        when (item.itemId) {
+            R.id.ok -> {
+                setResult(Activity.RESULT_OK, Intent().apply {
+                    putExtra(BundleConst.SAMPLE_ACTIVITY, "FROM SAMPLE_ACTIVITY")
+                })
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
 
     override fun viewDrawn() {
         mWanViewModel.wanListRequest()
