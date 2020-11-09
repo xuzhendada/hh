@@ -58,4 +58,6 @@ dependencies {
     api hilt_android
     api hilt_lifecycle_viewmodel
     api lifecycle_extensions
+    api data_store
+    api data_store_preferences
 }
