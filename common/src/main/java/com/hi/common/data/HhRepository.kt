@@ -14,4 +14,8 @@ class HhRepository constructor(private val api: Api) {
         emit(api.getList())
     }.flowOn(Dispatchers.IO)
 
+    fun getHomeArticle(page: Int) = flow {
+        emit(api.getHomeArticle(page))
+    }.flowOn(Dispatchers.IO)
+
 }

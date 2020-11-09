@@ -9,6 +9,7 @@ import com.hi.common.data.HhRepository
 import com.hi.common.data.HhResult
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 
 @Suppress("unused")
 class HiltViewModel @ViewModelInject constructor(
@@ -24,5 +25,13 @@ class HiltViewModel @ViewModelInject constructor(
             .collect { it ->
                 emit(HhResult.Success(it))
             }
+    }
+
+    fun getHomeArticle(pageIndex: Int) = liveData {
+        repository.getHomeArticle(pageIndex).catch { e ->
+            emit(HhResult.Failure(e))
+        }.collectLatest {
+            emit(HhResult.Success(it))
+        }
     }
 }

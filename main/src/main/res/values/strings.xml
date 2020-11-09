@@ -5,4 +5,5 @@
     <string name="coordinator_layout">顶部折叠布局</string>
     <string name="page_layout">page3.0</string>
     <string name="hilt_network">hilt网络请求</string>
+    <string name="smart_refresh_layout">刷新框架</string>
 </resources>

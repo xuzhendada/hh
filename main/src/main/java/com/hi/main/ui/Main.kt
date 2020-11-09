@@ -1,5 +1,6 @@
 package com.hi.main.ui
 
+import android.content.Intent
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import androidx.lifecycle.MutableLiveData
@@ -94,6 +95,10 @@ class Main : BaseActivity() {
                             }
                         }
                     }
+                    getString(R.string.smart_refresh_layout) -> {
+                        val intent = Intent(this@Main, SmartRefreshActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
             }
         }
@@ -111,6 +116,7 @@ class Main : BaseActivity() {
         itemCellList.add(BtnCell(getString(R.string.coordinator_layout)))
         itemCellList.add(BtnCell(getString(R.string.page_layout)))
         itemCellList.add(BtnCell(getString(R.string.hilt_network)))
+        itemCellList.add(BtnCell(getString(R.string.smart_refresh_layout)))
         mAdapter.submitList(itemCellList)
     }
 }

@@ -18,7 +18,7 @@ buildscript {
         glide_okhttp = "com.github.bumptech.glide:okhttp3-integration:$glide_version"
         gilde_kapt = "com.github.bumptech.glide:compiler:$glide_version"
         //刷新
-        smart_refresh = 'com.scwang.smart:refresh-layout-kernel:2.0.1'
+        smart_refresh = 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-4'
         //动画
         lottie = 'com.airbnb.android:lottie:3.4.4'
         //key-value组件
