@@ -97,6 +97,7 @@ class Main : BaseActivity() {
                         val intent = Intent(this@Main, SmartRefreshActivity::class.java)
                         startActivity(intent)
                     }
+                    getString(R.string.room_test) -> startActivity<RoomTestActivity>()
                 }
             }
         }
@@ -115,6 +116,7 @@ class Main : BaseActivity() {
         itemCellList.add(BtnCell(getString(R.string.page_layout)))
         itemCellList.add(BtnCell(getString(R.string.hilt_network)))
         itemCellList.add(BtnCell(getString(R.string.smart_refresh_layout)))
+        itemCellList.add(BtnCell(getString(R.string.room_test)))
         mAdapter.submitList(itemCellList)
     }
 }

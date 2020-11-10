@@ -49,8 +49,8 @@ buildscript {
         lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
         lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
         //room
-        room_version = '2.3.0-alpha02'
-        room_coroutines = "androidx.room:room-coroutines:2.1.0-alpha04"
+        room_version = '2.1.0-alpha04'
+        room_coroutines = "androidx.room:room-coroutines:$room_version"
         room_kapt = "androidx.room:room-compiler:$room_version"
         //work
         work_runtime_ktx = 'androidx.work:work-runtime-ktx:2.5.0-alpha02'

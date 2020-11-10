@@ -15,6 +15,9 @@
         <activity
             android:name=".ui.SmartRefreshActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.RoomTestActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
