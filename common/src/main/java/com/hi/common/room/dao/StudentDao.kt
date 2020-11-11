@@ -1,10 +1,7 @@
 package com.hi.common.room.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.hi.common.room.entity.StudentEntity
 
 /**
@@ -12,17 +9,18 @@ import com.hi.common.room.entity.StudentEntity
  * @date : 2020/11/10 17:06
  * @description :
  */
+@Dao
 interface StudentDao {
 
     @Insert
     suspend fun insert(studentEntity: StudentEntity)
 
     @Query("SELECT * FROM StudentDataBase")
-    suspend fun loadAllUser(): LiveData<List<StudentEntity>>
+    fun loadAllUser(): LiveData<List<StudentEntity>>
 
     @Query("DELETE FROM StudentDataBase WHERE id=:id")
     suspend fun delete(id: Int)
 
-    @Delete
+    @Query("DELETE FROM StudentDataBase")
     suspend fun deleteAll()
 }

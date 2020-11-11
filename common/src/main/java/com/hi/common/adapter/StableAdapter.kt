@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.annotation.IntRange
 import androidx.core.util.set
 import androidx.recyclerview.widget.*
+import com.hi.common.widget.DefaultEmptyCell
 import java.lang.IllegalArgumentException
 
 class StableAdapter(
@@ -77,5 +78,46 @@ class StableAdapter(
     fun submitList(temp: List<ItemCell>, callback: () -> Unit = {}) {
         differ.submitList(temp)
         callback.invoke()
+    }
+
+    /**
+     * 提交列表数据
+     * @param pageIndex 页码
+     * @param list 列表数据
+     * @param emptyCell 空页面
+     * @param callback 加载完成回调
+     *
+     */
+    fun submitList(
+        @IntRange(from = 1) pageIndex: Int,
+        list: List<ItemCell>,
+        emptyCell: ItemCell = DefaultEmptyCell(),
+        callback: () -> Unit = {}
+    ) {
+        when (pageIndex) {
+            1 -> {
+                if (list.isEmpty()) {
+                    differ.submitList(mutableListOf(emptyCell)) {
+                        callback.invoke()
+                    }
+                } else {
+                    differ.submitList(list) {
+                        callback.invoke()
+                    }
+                }
+            }
+            else -> {
+                val temp = mutableListOf<ItemCell>()
+                temp.addAll(differ.currentList)
+                if (list.isEmpty()) {
+                    callback.invoke()
+                } else {
+                    temp.addAll(list)
+                    differ.submitList(temp) {
+                        callback.invoke()
+                    }
+                }
+            }
+        }
     }
 }

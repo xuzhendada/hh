@@ -13,9 +13,9 @@ import androidx.room.PrimaryKey
 data class StudentEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
-    var id: Int,
+    var id: Int = 0,
     @ColumnInfo(name = "age")
-    var age: Int,
+    var age: Int = 0,
     @ColumnInfo(name = "name")
-    var name: String
+    var name: String = ""
 )
