@@ -4,10 +4,12 @@ import com.hi.common.api.Api
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Singleton
 
 /**
  *
  */
+@Singleton
 class HhRepository constructor(private val api: Api) {
 
     fun getArticle() = flow {
@@ -18,8 +20,7 @@ class HhRepository constructor(private val api: Api) {
         emit(api.getHomeArticle(page))
     }.flowOn(Dispatchers.IO)
 
-    fun geyArticleAndBanner() = flow {
-        emit(api.getList())
+    fun getBanner() = flow {
         emit(api.getBanner())
-    }.flowOn(Dispatchers.IO)
+    }
 }

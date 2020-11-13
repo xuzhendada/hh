@@ -1,5 +1,6 @@
 package com.hi.main.ui
 
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -14,6 +15,7 @@ import com.hi.common.data.response.Banner
 import com.hi.common.data.response.ListResponse
 import com.hi.common.ktx.*
 import com.hi.main.R
+import com.hi.main.cells.ArticleCell
 import com.hi.main.cells.ImgCell
 import com.hi.main.cells.WanCell
 import com.hi.main.vm.HiltViewModel
@@ -49,6 +51,9 @@ class TopFoldActivity : BaseActivity() {
         viewPageAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@TopFoldActivity)
         }
+        viewPager.apply {
+            adapter = viewPageAdapter
+        }
         recyclerView.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@TopFoldActivity)
@@ -57,25 +62,31 @@ class TopFoldActivity : BaseActivity() {
     }
 
     override fun viewDrawn() {
-        hiltViewModel.getArticleAndBanner().handleResult(this) {
-            onSuccess {
-                it.sameAs<List<ListResponse>> { result ->
-                    val itemCellList = mutableListOf<ItemCell>()
-                    result.forEach { res ->
-                        itemCellList.add(WanCell(res))
-                    }
-                    mAdapter.submitList(itemCellList)
-                }
-                it.sameAs<List<Banner>> { result ->
+        hiltViewModel.apply {
+            getBanner().handleResult(this@TopFoldActivity, {
+                onSuccess {
                     val imgCellList = mutableListOf<ImgCell>()
-                    result.forEach { banner ->
+                    it.data.forEach { banner ->
                         imgCellList.add(ImgCell(banner))
                     }
                     viewPageAdapter.submitList(imgCellList)
                 }
-                onFailure {
+                onFailure { e ->
+                    Log.d("xuzhen", "$e")
                 }
-            }
+            })
+            getArticle().handleResult(this@TopFoldActivity, {
+                onSuccess {
+                    val itemCellList = mutableListOf<ItemCell>()
+                    it.data.forEach { listResponse ->
+                        itemCellList.add(WanCell(listResponse))
+                    }
+                    mAdapter.submitList(itemCellList)
+                }
+                onFailure { e ->
+                    Log.d("xuzhen", "$e")
+                }
+            })
         }
     }
 }

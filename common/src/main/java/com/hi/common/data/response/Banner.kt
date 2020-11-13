@@ -7,7 +7,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class Banner(
     @Json(name = "desc")
-    val desc: String,
+    val desc: String?,
     @Json(name = "id")
     val id: Int,
     @Json(name = "imagePath")

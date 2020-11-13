@@ -1,5 +1,6 @@
 package com.hi.main.vm
 
+import android.util.Log
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 
+@Suppress("unused")
 class HiltViewModel @ViewModelInject constructor(
     private val repository: HhRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
@@ -38,16 +40,11 @@ class HiltViewModel @ViewModelInject constructor(
         }
     }
 
-    fun getArticleAndBanner() = liveData<HhResult<Any>> {
-        repository.geyArticleAndBanner().catch { e ->
+    fun getBanner() = liveData {
+        repository.getBanner().catch { e ->
             emit(HhResult.Failure(e))
         }.collectLatest {
-            it.data.sameAs<WanResponse<List<Banner>>> { result ->
-                emit(HhResult.Success(result.data))
-            }
-            it.data.sameAs<WanResponse<List<ListResponse>>> { result ->
-                emit(HhResult.Success(result.data))
-            }
+            emit(HhResult.Success(it))
         }
     }
 }
