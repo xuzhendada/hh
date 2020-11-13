@@ -18,4 +18,8 @@ class HhRepository constructor(private val api: Api) {
         emit(api.getHomeArticle(page))
     }.flowOn(Dispatchers.IO)
 
+    fun geyArticleAndBanner() = flow {
+        emit(api.getList())
+        emit(api.getBanner())
+    }.flowOn(Dispatchers.IO)
 }
