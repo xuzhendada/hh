@@ -29,7 +29,7 @@ import kotlin.concurrent.thread
  * Created by xuz on 2020/4/1 23:14
  */
 @AndroidEntryPoint
-class Main : BaseActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var mAdapter: StableAdapter
 
     private val hiltViewModel: HiltViewModel by viewModels()
@@ -84,7 +84,7 @@ class Main : BaseActivity() {
                     getString(R.string.coordinator_layout) -> startActivity<TopFoldActivity>()
                     getString(R.string.page_layout) -> startActivity<PageRecyclerActivity>()
                     getString(R.string.hilt_network) -> {
-                        hiltViewModel.getArticle().handleResult(this@Main) {
+                        hiltViewModel.getArticle().handleResult(this@MainActivity) {
                             onSuccess {
                                 toast(it.data.toString())
                             }
@@ -94,7 +94,7 @@ class Main : BaseActivity() {
                         }
                     }
                     getString(R.string.smart_refresh_layout) -> {
-                        val intent = Intent(this@Main, SmartRefreshActivity::class.java)
+                        val intent = Intent(this@MainActivity, SmartRefreshActivity::class.java)
                         startActivity(intent)
                     }
                     getString(R.string.room_test) -> startActivity<RoomTestActivity>()
@@ -103,7 +103,7 @@ class Main : BaseActivity() {
         }
         recycler.apply {
             adapter = mAdapter
-            layoutManager = GridLayoutManager(this@Main, 2)
+            layoutManager = GridLayoutManager(this@MainActivity, 2)
         }
     }
 
