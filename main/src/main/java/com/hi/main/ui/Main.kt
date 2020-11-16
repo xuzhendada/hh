@@ -1,5 +1,6 @@
 package com.hi.main.ui
 
+import android.content.Intent
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import androidx.lifecycle.MutableLiveData
@@ -8,13 +9,12 @@ import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
 import com.hi.common.constant.BundleConst
-import com.hi.common.constant.RouterPath
 import com.hi.common.data.handleResult
 import com.hi.common.ktx.createStableAdapter
 import com.hi.common.ktx.intent.ActivityForResultFactory
 import com.hi.common.ktx.intent.RequestPermissionsFactory
 import com.hi.common.ktx.intent.intentOf
-import com.hi.common.ktx.navigate
+import com.hi.common.ktx.intent.startActivity
 import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
 import com.hi.main.R
@@ -22,7 +22,6 @@ import com.hi.main.cells.BtnCell
 import com.hi.main.vm.HiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import kotlin.concurrent.thread
 
@@ -82,8 +81,8 @@ class Main : BaseActivity() {
                             }
                         }
                     }
-                    getString(R.string.coordinator_layout) -> navigate(RouterPath.TOP_fOLD)
-                    getString(R.string.page_layout) -> navigate(RouterPath.PAGE_RECYCLER)
+                    getString(R.string.coordinator_layout) -> startActivity<TopFoldActivity>()
+                    getString(R.string.page_layout) -> startActivity<PageRecyclerActivity>()
                     getString(R.string.hilt_network) -> {
                         hiltViewModel.getArticle().handleResult(this@Main) {
                             onSuccess {
@@ -94,6 +93,11 @@ class Main : BaseActivity() {
                             }
                         }
                     }
+                    getString(R.string.smart_refresh_layout) -> {
+                        val intent = Intent(this@Main, SmartRefreshActivity::class.java)
+                        startActivity(intent)
+                    }
+                    getString(R.string.room_test) -> startActivity<RoomTestActivity>()
                 }
             }
         }
@@ -111,6 +115,8 @@ class Main : BaseActivity() {
         itemCellList.add(BtnCell(getString(R.string.coordinator_layout)))
         itemCellList.add(BtnCell(getString(R.string.page_layout)))
         itemCellList.add(BtnCell(getString(R.string.hilt_network)))
+        itemCellList.add(BtnCell(getString(R.string.smart_refresh_layout)))
+        itemCellList.add(BtnCell(getString(R.string.room_test)))
         mAdapter.submitList(itemCellList)
     }
 }

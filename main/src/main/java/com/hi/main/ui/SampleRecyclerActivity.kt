@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -54,6 +55,7 @@ class SampleRecyclerActivity : BaseActivity() {
         }
         mWanViewModel.subscribeList().applyResponse(this) {
             onSuccess {
+                progress_bar.visibility = View.GONE
                 val itemCellList = mutableListOf<ItemCell>()
                 it.forEach { res ->
                     itemCellList.add(WanCell(res))

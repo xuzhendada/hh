@@ -18,7 +18,7 @@ buildscript {
         glide_okhttp = "com.github.bumptech.glide:okhttp3-integration:$glide_version"
         gilde_kapt = "com.github.bumptech.glide:compiler:$glide_version"
         //刷新
-        smart_refresh = 'com.scwang.smart:refresh-layout-kernel:2.0.1'
+        smart_refresh = 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-4'
         //动画
         lottie = 'com.airbnb.android:lottie:3.4.4'
         //key-value组件
@@ -49,18 +49,21 @@ buildscript {
         lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
         lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
         //room
-        room_version = '2.3.0-alpha02'
-        room_coroutines = "androidx.room:room-coroutines:2.1.0-alpha04"
+        room_version = '2.2.5'
+        room_ktx = "androidx.room:room-ktx:$room_version"
         room_kapt = "androidx.room:room-compiler:$room_version"
         //work
         work_runtime_ktx = 'androidx.work:work-runtime-ktx:2.5.0-alpha02'
+
+        data_store_preferences="androidx.datastore:datastore-preferences:1.0.0-alpha02"
+        data_store="androidx.datastore:datastore-core:1.0.0-alpha02"
     }
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.4'
         classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0'

@@ -40,7 +40,7 @@ dependencies {
     kapt room_kapt
     api fragment_ktx
     api constraintlayout
-    api room_coroutines
+    api room_ktx
     api lifecycle_viewmodel_ktx
     api work_runtime_ktx
     api retrofit_moshi
@@ -58,4 +58,6 @@ dependencies {
     api hilt_android
     api hilt_lifecycle_viewmodel
     api lifecycle_extensions
+    api data_store
+    api data_store_preferences
 }
