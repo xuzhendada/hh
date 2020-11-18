@@ -13,7 +13,7 @@ import com.hi.common.room.entity.StudentEntity
 interface StudentDao {
 
     @Insert
-    suspend fun insert(studentEntity: StudentEntity)
+    suspend fun insert(studentEntity: List<StudentEntity>)
 
     @Query("SELECT * FROM StudentDataBase")
     fun loadAllUser(): LiveData<List<StudentEntity>>

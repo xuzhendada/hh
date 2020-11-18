@@ -11,11 +11,10 @@ import androidx.room.PrimaryKey
  */
 @Entity(tableName = "StudentDataBase")
 data class StudentEntity(
-    @PrimaryKey
+    //主键自增
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int = 0,
-    @ColumnInfo(name = "age")
-    var age: Int = 0,
     @ColumnInfo(name = "name")
     var name: String = ""
 )

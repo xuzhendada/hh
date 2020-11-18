@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.xz.hh">
+
     <application
         android:name=".HhApp"
         android:allowBackup="true"
@@ -12,7 +13,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name="com.hi.main.ui.MainActivity">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/SplashActivityTheme"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
