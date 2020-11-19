@@ -1,5 +1,6 @@
 package com.hi.common.ktx
 
+import android.net.Uri
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
@@ -40,6 +41,21 @@ class ImageLoader(activity: FragmentActivity) {
         error: Int = 0//錯誤圖片
     ) {
         mRequestManger.load(url).apply(
+            mRequestOptions
+                .autoClone()
+                .placeholder(placeholder)
+                .error(error)
+        ).into(view)
+    }
+
+    //加载URI
+    fun display(
+        view: ImageView,
+        uri: Uri?,
+        placeholder: Int = 0,//佔位符
+        error: Int = 0//錯誤圖片
+    ) {
+        mRequestManger.load(uri).apply(
             mRequestOptions
                 .autoClone()
                 .placeholder(placeholder)

@@ -27,6 +27,8 @@ buildscript {
         arouter_api = 'com.alibaba:arouter-api:1.5.0'
         arouter_kapt = 'com.alibaba:arouter-compiler:1.2.2'
         //知乎图片选择框架
+        matisse='com.zhihu.android:matisse:0.5.3-beta3'
+        //material app风格
         material = "com.google.android.material:material:1.2.1"
         //jetpack
         //hilt
@@ -55,8 +57,8 @@ buildscript {
         //work
         work_runtime_ktx = 'androidx.work:work-runtime-ktx:2.5.0-alpha02'
 
-        data_store_preferences="androidx.datastore:datastore-preferences:1.0.0-alpha02"
-        data_store="androidx.datastore:datastore-core:1.0.0-alpha02"
+        data_store_preferences = "androidx.datastore:datastore-preferences:1.0.0-alpha02"
+        data_store = "androidx.datastore:datastore-core:1.0.0-alpha02"
     }
     repositories {
         google()

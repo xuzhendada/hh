@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/select_img"
+        android:title="选择图片" />
+    <item
+        android:id="@+id/clear_all"
+        android:title="清空" />
+</menu>

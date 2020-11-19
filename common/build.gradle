@@ -60,6 +60,7 @@ dependencies {
     api lifecycle_extensions
     api data_store
     api data_store_preferences
+    api matisse
     api ('com.alibaba.android:vlayout:1.2.8@aar') {
         transitive = true
     }

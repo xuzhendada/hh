@@ -98,6 +98,7 @@ class MainActivity : BaseActivity() {
                         startActivity(intent)
                     }
                     getString(R.string.room_test) -> startActivity<RoomTestActivity>()
+                    getString(R.string.select_img) -> startActivity<SelectImgActivity>()
                 }
             }
         }
@@ -117,6 +118,7 @@ class MainActivity : BaseActivity() {
         itemCellList.add(BtnCell(getString(R.string.hilt_network)))
         itemCellList.add(BtnCell(getString(R.string.smart_refresh_layout)))
         itemCellList.add(BtnCell(getString(R.string.room_test)))
+        itemCellList.add(BtnCell(getString(R.string.select_img)))
         mAdapter.submitList(itemCellList)
     }
 }
