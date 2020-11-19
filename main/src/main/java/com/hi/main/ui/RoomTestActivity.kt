@@ -4,6 +4,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.hi.common.BaseActivity
 import com.hi.common.ktx.toast
+import com.hi.common.ktx.toolbar
 import com.hi.main.R
 
 /**
@@ -16,7 +17,7 @@ class RoomTestActivity : BaseActivity() {
     override fun layoutId() = R.layout.activity_room_test
 
     override fun init() {
-
+        toolbar(getString(R.string.room_test))
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
