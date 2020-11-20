@@ -5,7 +5,13 @@ import android.view.MenuItem
 import com.hi.common.BaseActivity
 import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
+import com.hi.common.room.HhDataBase
+import com.hi.common.room.STUDENT_DATA
+import com.hi.common.room.entity.StudentEntity
 import com.hi.main.R
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlin.concurrent.thread
 
 /**
  * @author : wbxuzhen
@@ -18,6 +24,7 @@ class RoomTestActivity : BaseActivity() {
 
     override fun init() {
         toolbar(getString(R.string.room_test))
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -27,11 +34,26 @@ class RoomTestActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.add_data -> {
-            toast("加载数据")
+            val student = mutableListOf<StudentEntity>()
+            var i = 0
+            STUDENT_DATA.forEach {
+                student.add(StudentEntity(it))
+                i++
+            }
+            thread {
+
+            }
+            GlobalScope.launch {
+                HhDataBase.getDataBase(this@RoomTestActivity).studentDao()
+                    .insert(studentEntity = student)
+            }
             true
         }
         R.id.clear_all -> {
-            toast("清空数据")
+            GlobalScope.launch {
+                HhDataBase.getDataBase(this@RoomTestActivity).studentDao()
+                    .deleteAll()
+            }
             true
         }
         else -> super.onOptionsItemSelected(item)
