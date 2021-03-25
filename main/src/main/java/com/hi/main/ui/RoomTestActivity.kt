@@ -9,6 +9,7 @@ import com.hi.common.room.HhDataBase
 import com.hi.common.room.STUDENT_DATA
 import com.hi.common.room.entity.StudentEntity
 import com.hi.main.R
+import com.hi.main.databinding.ActivityRoomTestBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
@@ -18,9 +19,7 @@ import kotlin.concurrent.thread
  * @date : 2020/11/10 17:14
  * @description :jetpack->room
  */
-class RoomTestActivity : BaseActivity() {
-
-    override fun layoutId() = R.layout.activity_room_test
+class RoomTestActivity : BaseActivity<ActivityRoomTestBinding>() {
 
     override fun init() {
         toolbar(getString(R.string.room_test))

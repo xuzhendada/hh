@@ -18,6 +18,7 @@ import com.hi.main.R
 import com.hi.main.cells.ArticleCell
 import com.hi.main.cells.ImgCell
 import com.hi.main.cells.WanCell
+import com.hi.main.databinding.ActivityTopFoldBinding
 import com.hi.main.vm.HiltViewModel
 import com.hi.main.vm.WanViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,14 +29,12 @@ import kotlin.math.abs
  * 顶部折叠布局
  */
 @AndroidEntryPoint
-class TopFoldActivity : BaseActivity() {
+class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
 
     private lateinit var mAdapter: StableAdapter
     private lateinit var viewPageAdapter: StableAdapter
 
     private val hiltViewModel: HiltViewModel by viewModels()
-
-    override fun layoutId() = R.layout.activity_top_fold
 
     override fun init() {
         toolbar()

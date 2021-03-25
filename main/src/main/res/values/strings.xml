@@ -8,4 +8,5 @@
     <string name="smart_refresh_layout">刷新框架</string>
     <string name="room_test">ROOM</string>
     <string name="select_img">图片选择</string>
+    <string name="camera">CameraX</string>
 </resources>

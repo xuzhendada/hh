@@ -17,6 +17,7 @@ import com.hi.common.ktx.*
 import com.hi.common.ktx.intent.RequestPermissionsFactory
 import com.hi.main.R
 import com.hi.main.cells.SelectImgCell
+import com.hi.main.databinding.ActivitySelectImgBinding
 import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.GlideEngine
@@ -29,8 +30,7 @@ import javax.inject.Inject
  *  des:图片选择
  */
 @AndroidEntryPoint
-class SelectImgActivity : BaseActivity() {
-
+class SelectImgActivity : BaseActivity<ActivitySelectImgBinding>() {
     private var imgList = MutableLiveData<List<Uri>>()
     private val img = mutableListOf<Uri>()
 
@@ -38,7 +38,6 @@ class SelectImgActivity : BaseActivity() {
     lateinit var requestPermissionsFactory: RequestPermissionsFactory
 
     private lateinit var stableAdapter: StableAdapter
-    override fun layoutId() = R.layout.activity_select_img
 
     override fun init() {
         toolbar(getString(R.string.select_img))

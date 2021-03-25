@@ -19,6 +19,7 @@ import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
 import com.hi.main.R
 import com.hi.main.cells.BtnCell
+import com.hi.main.databinding.ActivityMainBinding
 import com.hi.main.vm.HiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,7 +30,7 @@ import kotlin.concurrent.thread
  * Created by xuz on 2020/4/1 23:14
  */
 @AndroidEntryPoint
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
     private lateinit var mAdapter: StableAdapter
 
     private val hiltViewModel: HiltViewModel by viewModels()
@@ -41,8 +42,6 @@ class MainActivity : BaseActivity() {
     lateinit var activityForResultFactory: ActivityForResultFactory
 
     private val liveData = MutableLiveData<Int>()
-
-    override fun layoutId() = R.layout.activity_main
 
     override fun init() {
         toolbar("首页", false)
@@ -99,6 +98,20 @@ class MainActivity : BaseActivity() {
                     }
                     getString(R.string.room_test) -> startActivity<RoomTestActivity>()
                     getString(R.string.select_img) -> startActivity<SelectImgActivity>()
+                    getString(R.string.camera) -> permissionsFactory.launch(
+                        arrayOf(
+                            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            android.Manifest.permission.CAMERA
+                        )
+                    ) {
+                        onGranted {
+                            startActivity<CameraXActivity>()
+                        }
+                        onDenied {
+                            toast("申请失败")
+                        }
+                    }
                 }
             }
         }
@@ -119,6 +132,7 @@ class MainActivity : BaseActivity() {
         itemCellList.add(BtnCell(getString(R.string.smart_refresh_layout)))
         itemCellList.add(BtnCell(getString(R.string.room_test)))
         itemCellList.add(BtnCell(getString(R.string.select_img)))
+        itemCellList.add(BtnCell(getString(R.string.camera)))
         mAdapter.submitList(itemCellList)
     }
 }

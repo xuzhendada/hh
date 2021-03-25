@@ -3,7 +3,7 @@ package com.hi.common.data
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 
-class HhResultHandler<T>() {
+class HhResultHandler<T> {
     private var success: ((T) -> Unit)? = null
     private var failure: ((Throwable) -> Unit)? = null
 

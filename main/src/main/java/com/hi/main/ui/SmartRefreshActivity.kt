@@ -8,6 +8,7 @@ import com.hi.common.data.handleResult
 import com.hi.common.ktx.*
 import com.hi.main.R
 import com.hi.main.cells.ArticleCell
+import com.hi.main.databinding.ActivitySmartRefreshBinding
 import com.hi.main.vm.HiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_smart_refresh.*
@@ -18,13 +19,10 @@ import kotlinx.android.synthetic.main.activity_smart_refresh.*
  * @description :
  */
 @AndroidEntryPoint
-class SmartRefreshActivity : BaseActivity() {
-
+class SmartRefreshActivity : BaseActivity<ActivitySmartRefreshBinding>() {
     private val hiltViewModel: HiltViewModel by viewModels()
     private lateinit var stableAdapter: StableAdapter
     private var page = 1
-
-    override fun layoutId() = R.layout.activity_smart_refresh
 
     override fun init() {
         toolbar(getString(R.string.smart_refresh_layout))

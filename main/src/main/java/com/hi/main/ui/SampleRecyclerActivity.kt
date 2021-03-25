@@ -17,6 +17,8 @@ import com.hi.common.ktx.*
 import com.hi.common.widget.UniversalItemDecoration
 import com.hi.main.R
 import com.hi.main.cells.WanCell
+import com.hi.main.databinding.ActivityRoomTestBinding
+import com.hi.main.databinding.ActivitySampleRecyclerBinding
 import com.hi.main.vm.WanViewModel
 import kotlinx.android.synthetic.main.activity_sample_recycler.*
 
@@ -24,15 +26,14 @@ import kotlinx.android.synthetic.main.activity_sample_recycler.*
  * 简单的recyclerView实现
  */
 @Route(path = RouterPath.SAMPLE_RECYCLER)
-class SampleRecyclerActivity : BaseActivity() {
+class SampleRecyclerActivity : BaseActivity<ActivitySampleRecyclerBinding>() {
     private val mWanViewModel by lazy {
         viewModels<WanViewModel>().value
     }
     private lateinit var mAdapter: StableAdapter
 
-    override fun layoutId() = R.layout.activity_sample_recycler
-
     override fun init() {
+        bind
         toolbar(getString(R.string.sample_recycler))
         mAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@SampleRecyclerActivity)

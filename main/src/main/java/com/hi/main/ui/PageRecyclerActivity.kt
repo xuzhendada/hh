@@ -11,6 +11,7 @@ import com.hi.common.ktx.toolbar
 import com.hi.common.widget.UniversalItemDecoration
 import com.hi.main.page.PageAdapter
 import com.hi.main.R
+import com.hi.main.databinding.ActivityPageRecyclerBinding
 import com.hi.main.vm.PagingViewModel
 import kotlinx.android.synthetic.main.activity_page_recycler.*
 
@@ -18,13 +19,12 @@ import kotlinx.android.synthetic.main.activity_page_recycler.*
  * jetPack->paging
  */
 @Route(path = RouterPath.PAGE_RECYCLER)
-class PageRecyclerActivity : BaseActivity() {
+class PageRecyclerActivity : BaseActivity<ActivityPageRecyclerBinding>() {
     private val mPagingViewMode by lazy {
         viewModels<PagingViewModel>().value
     }
-    private val mAdapter: PageAdapter by lazy { PageAdapter() }
 
-    override fun layoutId() = R.layout.activity_page_recycler
+    private val mAdapter: PageAdapter by lazy { PageAdapter() }
 
     override fun init() {
         toolbar(R.string.page_layout)
