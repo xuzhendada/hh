@@ -1,6 +1,7 @@
 package com.hi.main.ui
 
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -39,10 +40,10 @@ class PageRecyclerActivity : BaseActivity<ActivityPageRecyclerBinding>() {
                 )
             )
         }
-        mPagingViewMode.getArticleData().observe(this) {
+        mPagingViewMode.getArticleData().observe(this, Observer {
             lifecycleScope.launchWhenCreated {
                 mAdapter.submitData(it)
             }
-        }
+        })
     }
 }

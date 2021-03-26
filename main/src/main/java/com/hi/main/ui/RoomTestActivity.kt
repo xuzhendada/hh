@@ -23,7 +23,6 @@ class RoomTestActivity : BaseActivity<ActivityRoomTestBinding>() {
 
     override fun init() {
         toolbar(getString(R.string.room_test))
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -38,9 +37,6 @@ class RoomTestActivity : BaseActivity<ActivityRoomTestBinding>() {
             STUDENT_DATA.forEach {
                 student.add(StudentEntity(it))
                 i++
-            }
-            thread {
-
             }
             GlobalScope.launch {
                 HhDataBase.getDataBase(this@RoomTestActivity).studentDao()

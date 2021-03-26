@@ -62,7 +62,7 @@ class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
 
     override fun viewDrawn() {
         hiltViewModel.apply {
-            getBanner().handleResult(this@TopFoldActivity, {
+            getBanner().handleResult(this@TopFoldActivity) {
                 onSuccess {
                     val imgCellList = mutableListOf<ImgCell>()
                     it.data.forEach { banner ->
@@ -73,8 +73,8 @@ class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
                 onFailure { e ->
                     Log.d("xuzhen", "$e")
                 }
-            })
-            getArticle().handleResult(this@TopFoldActivity, {
+            }
+            getArticle().handleResult(this@TopFoldActivity) {
                 onSuccess {
                     val itemCellList = mutableListOf<ItemCell>()
                     it.data.forEach { listResponse ->
@@ -85,7 +85,7 @@ class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
                 onFailure { e ->
                     Log.d("xuzhen", "$e")
                 }
-            })
+            }
         }
     }
 }

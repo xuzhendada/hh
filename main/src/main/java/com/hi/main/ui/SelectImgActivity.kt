@@ -48,7 +48,7 @@ class SelectImgActivity : BaseActivity<ActivitySelectImgBinding>() {
             layoutManager = GridLayoutManager(this@SelectImgActivity, 4)
             adapter = stableAdapter
         }
-        imgList.observe(this, {
+        imgList.observe(this, Observer {
             val itemList = mutableListOf<ItemCell>()
             it.forEach { uri ->
                 itemList.add(SelectImgCell(uri))
