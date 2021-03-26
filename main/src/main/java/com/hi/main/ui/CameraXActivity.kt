@@ -4,13 +4,11 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import com.hi.common.BaseActivity
 import com.hi.common.ktx.debounceClick
 import com.hi.main.R
 import com.hi.main.databinding.ActivityCameraBinding
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_camera.*
 import java.io.File
 import java.util.concurrent.ExecutorService

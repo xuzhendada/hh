@@ -1,7 +1,6 @@
 package com.hi.main.cells
 
 import android.view.View
-import androidx.annotation.StringRes
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.RecyclerSupport
 import com.hi.common.adapter.RecyclerVH

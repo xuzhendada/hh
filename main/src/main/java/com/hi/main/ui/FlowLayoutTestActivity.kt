@@ -2,8 +2,6 @@ package com.hi.main.ui
 
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.annotation.ColorRes
-import androidx.annotation.DrawableRes
 import com.hi.common.BaseActivity
 import com.hi.common.ktx.toolbar
 import com.hi.common.room.STUDENT_DATA

@@ -1,6 +1,5 @@
 package com.hi.main.cells
 
-import android.util.Log
 import android.view.View
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.RecyclerSupport

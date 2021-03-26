@@ -1,6 +1,5 @@
 package com.hi.main.ui
 
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
@@ -9,9 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.StableAdapter
 import com.hi.common.ktx.createStableAdapter
-import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
-import com.hi.common.room.HhDataBase
 import com.hi.common.room.STUDENT_DATA
 import com.hi.common.room.entity.StudentEntity
 import com.hi.common.widget.UniversalItemDecoration
@@ -19,9 +16,6 @@ import com.hi.main.R
 import com.hi.main.cells.RoomCell
 import com.hi.main.databinding.ActivityRoomTestBinding
 import com.hi.main.vm.RoomViewModel
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlin.concurrent.thread
 
 /**
  * @author : wbxuzhen
