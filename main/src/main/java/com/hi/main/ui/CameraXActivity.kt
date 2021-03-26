@@ -20,7 +20,6 @@ import java.util.concurrent.Executors
  * Creatd by wbxuzhen on 2021/3/25 15:08
  * description:CameraX
  */
-@AndroidEntryPoint
 class CameraXActivity : BaseActivity<ActivityCameraBinding>() {
 
     private var imageCapture: ImageCapture? = null

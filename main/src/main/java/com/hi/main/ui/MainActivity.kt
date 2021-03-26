@@ -112,6 +112,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                             toast("申请失败")
                         }
                     }
+                    getString(R.string.flow_layout) -> startActivity<FlowLayoutTestActivity>()
                 }
             }
         }
@@ -133,6 +134,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         itemCellList.add(BtnCell(getString(R.string.room_test)))
         itemCellList.add(BtnCell(getString(R.string.select_img)))
         itemCellList.add(BtnCell(getString(R.string.camera)))
+        itemCellList.add(BtnCell(getString(R.string.flow_layout)))
         mAdapter.submitList(itemCellList)
     }
 }

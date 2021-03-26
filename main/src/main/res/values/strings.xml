@@ -9,4 +9,5 @@
     <string name="room_test">ROOM</string>
     <string name="select_img">图片选择</string>
     <string name="camera">CameraX</string>
+    <string name="flow_layout">流式布局</string>
 </resources>
