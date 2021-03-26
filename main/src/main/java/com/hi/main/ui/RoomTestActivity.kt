@@ -1,15 +1,24 @@
 package com.hi.main.ui
 
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hi.common.BaseActivity
+import com.hi.common.adapter.StableAdapter
+import com.hi.common.ktx.createStableAdapter
 import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
 import com.hi.common.room.HhDataBase
 import com.hi.common.room.STUDENT_DATA
 import com.hi.common.room.entity.StudentEntity
+import com.hi.common.widget.UniversalItemDecoration
 import com.hi.main.R
+import com.hi.main.cells.RoomCell
 import com.hi.main.databinding.ActivityRoomTestBinding
+import com.hi.main.vm.RoomViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
@@ -20,9 +29,32 @@ import kotlin.concurrent.thread
  * @description :jetpack->room
  */
 class RoomTestActivity : BaseActivity<ActivityRoomTestBinding>() {
+    private lateinit var stableAdapter: StableAdapter
+    private val roomViewModel: RoomViewModel by viewModels()
 
     override fun init() {
         toolbar(getString(R.string.room_test))
+        stableAdapter = createStableAdapter { }
+
+        bind.recycler.apply {
+            adapter = stableAdapter
+            layoutManager = LinearLayoutManager(this@RoomTestActivity)
+            addItemDecoration(UniversalItemDecoration(this@RoomTestActivity, 10, 10))
+        }
+    }
+
+    override fun viewDrawn() {
+        roomViewModel.subscribe().observe(this, Observer {
+            val itemCellList = mutableListOf<RoomCell>()
+            if (it.isNullOrEmpty()) {
+                itemCellList.clear()
+            } else {
+                it.forEach { entity ->
+                    itemCellList.add(RoomCell(entity))
+                }
+            }
+            stableAdapter.submitList(itemCellList)
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -38,17 +70,13 @@ class RoomTestActivity : BaseActivity<ActivityRoomTestBinding>() {
                 student.add(StudentEntity(it))
                 i++
             }
-            GlobalScope.launch {
-                HhDataBase.getDataBase(this@RoomTestActivity).studentDao()
-                    .insert(studentEntity = student)
+            roomViewModel.insertUpdate(student) {
+                i = 0
             }
             true
         }
         R.id.clear_all -> {
-            GlobalScope.launch {
-                HhDataBase.getDataBase(this@RoomTestActivity).studentDao()
-                    .deleteAll()
-            }
+            roomViewModel.delete()
             true
         }
         else -> super.onOptionsItemSelected(item)
