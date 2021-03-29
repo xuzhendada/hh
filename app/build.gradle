@@ -21,17 +21,18 @@ android {
             }
         }
     }
-//    productFlavors {
-//        alpha {
-//
-//        }
-//        beta {
-//
-//        }
-//        product {
-//
-//        }
-//    }
+    flavorDimensions("environment")
+    productFlavors {
+        alpha {
+
+        }
+        beta {
+
+        }
+        product {
+
+        }
+    }
 
     buildTypes {
         release {
