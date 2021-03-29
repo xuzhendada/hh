@@ -3,7 +3,9 @@
     package="com.hi.test1">
 
     <application>
-
+        <activity
+            android:name=".Test1Activity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

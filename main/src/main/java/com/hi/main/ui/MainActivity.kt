@@ -9,12 +9,14 @@ import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
 import com.hi.common.constant.BundleConst
+import com.hi.common.constant.RouterPath
 import com.hi.common.data.handleResult
 import com.hi.common.ktx.createStableAdapter
 import com.hi.common.ktx.intent.ActivityForResultFactory
 import com.hi.common.ktx.intent.RequestPermissionsFactory
 import com.hi.common.ktx.intent.intentOf
 import com.hi.common.ktx.intent.startActivity
+import com.hi.common.ktx.navigate
 import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
 import com.hi.main.R
@@ -113,6 +115,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         }
                     }
                     getString(R.string.flow_layout) -> startActivity<FlowLayoutTestActivity>()
+                    /*测试路由的话，打开test1模块,gradle.properties(project)->test1_dev=1*/
+                    getString(R.string.a_route) -> navigate(RouterPath.TEST_MAIN)
                 }
             }
         }
@@ -135,6 +139,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         itemCellList.add(BtnCell(getString(R.string.select_img)))
         itemCellList.add(BtnCell(getString(R.string.camera)))
         itemCellList.add(BtnCell(getString(R.string.flow_layout)))
+        itemCellList.add(BtnCell(getString(R.string.a_route)))
         mAdapter.submitList(itemCellList)
     }
 }
