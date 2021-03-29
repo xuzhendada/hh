@@ -21,6 +21,17 @@ android {
             }
         }
     }
+    productFlavors {
+        alpha {
+
+        }
+        beta {
+
+        }
+        product {
+
+        }
+    }
 
     buildTypes {
         release {
