@@ -29,6 +29,7 @@ class CameraXActivity : BaseActivity<ActivityCameraBinding>() {
         mbTakePhoto.debounceClick {
             takePhoto()
         }
+
         file = getOutPutDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
@@ -39,7 +40,7 @@ class CameraXActivity : BaseActivity<ActivityCameraBinding>() {
         cameraProviderFuture.addListener(Runnable {
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
             val preview =
-                Preview.Builder().build().also { it.setSurfaceProvider(pvPreView.surfaceProvider) }
+                Preview.Builder().build().also { it.setSurfaceProvider(previewView.surfaceProvider) }
             val camera = CameraSelector.DEFAULT_BACK_CAMERA
             try {
                 cameraProvider.unbindAll()

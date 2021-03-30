@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.xuzhendada@sina.com'
 
 android {
     compileSdkVersion 30
