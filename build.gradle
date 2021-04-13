@@ -60,12 +60,6 @@ buildscript {
         data_store_preferences = "androidx.datastore:datastore-preferences:1.0.0-alpha02"
         data_store = "androidx.datastore:datastore-core:1.0.0-alpha02"
 
-        camerax_version = "1.0.0-rc02"
-        camera_core = "androidx.camera:camera-core:$camerax_version"
-        camera_camera2 = "androidx.camera:camera-camera2:$camerax_version"
-        camera_lifecycle = "androidx.camera:camera-lifecycle:$camerax_version"
-        camera_view = "androidx.camera:camera-view:1.0.0-alpha21"
-        camera_extensions = "androidx.camera:camera-extensions:1.0.0-alpha21"
     }
     repositories {
         google()

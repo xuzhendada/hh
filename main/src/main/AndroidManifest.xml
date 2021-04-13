@@ -25,9 +25,6 @@
             android:name=".ui.SelectImgActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.CameraXActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.FlowLayoutTestActivity"
             android:screenOrientation="portrait" />
     </application>

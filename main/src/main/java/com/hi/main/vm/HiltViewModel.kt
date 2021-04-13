@@ -22,7 +22,7 @@ class HiltViewModel @ViewModelInject constructor(
     fun getArticle() = liveData {
         repository.getArticle().catch { e ->
             emit(HhResult.Failure(e))
-        }.collect { it ->
+        }.collect {
             emit(HhResult.Success(it))
         }
     }

@@ -2,8 +2,11 @@ package com.hi.main.ui
 
 import android.content.Intent
 import androidx.activity.viewModels
+import androidx.arch.core.util.Function
 import androidx.core.os.bundleOf
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
@@ -43,7 +46,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     @Inject
     lateinit var activityForResultFactory: ActivityForResultFactory
 
+
     private val liveData = MutableLiveData<Int>()
+
 
     override fun init() {
         toolbar("首页", false)
@@ -100,20 +105,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     getString(R.string.room_test) -> startActivity<RoomTestActivity>()
                     getString(R.string.select_img) -> startActivity<SelectImgActivity>()
-                    getString(R.string.camera) -> permissionsFactory.launch(
-                        arrayOf(
-                            android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            android.Manifest.permission.CAMERA
-                        )
-                    ) {
-                        onGranted {
-                            startActivity<CameraXActivity>()
-                        }
-                        onDenied {
-                            toast("申请失败")
-                        }
-                    }
                     getString(R.string.flow_layout) -> startActivity<FlowLayoutTestActivity>()
                     /*测试路由的话，打开test1模块,gradle.properties(project)->test1_dev=1*/
                     getString(R.string.a_route) -> navigate(RouterPath.TEST_MAIN)
@@ -137,7 +128,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         itemCellList.add(BtnCell(getString(R.string.smart_refresh_layout)))
         itemCellList.add(BtnCell(getString(R.string.room_test)))
         itemCellList.add(BtnCell(getString(R.string.select_img)))
-        itemCellList.add(BtnCell(getString(R.string.camera)))
         itemCellList.add(BtnCell(getString(R.string.flow_layout)))
         itemCellList.add(BtnCell(getString(R.string.a_route)))
         mAdapter.submitList(itemCellList)

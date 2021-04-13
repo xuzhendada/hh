@@ -67,9 +67,4 @@ dependencies {
     api ('com.alibaba.android:vlayout:1.2.8@aar') {
         transitive = true
     }
-    api camera_core
-    api camera_camera2
-    api camera_lifecycle
-    api camera_view
-    api camera_extensions
 }
