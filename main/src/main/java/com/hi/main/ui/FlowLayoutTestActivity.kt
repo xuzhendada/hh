@@ -3,6 +3,8 @@ package com.hi.main.ui
 import android.view.ViewGroup
 import android.widget.TextView
 import com.hi.common.BaseActivity
+import com.hi.common.ktx.debounceClick
+import com.hi.common.ktx.toast
 import com.hi.common.ktx.toolbar
 import com.hi.common.room.STUDENT_DATA
 import com.hi.main.R
@@ -37,14 +39,17 @@ class FlowLayoutTestActivity : BaseActivity<ActivityFlowLayoutTestBinding>() {
      * 构建子itemView
      */
     private fun itemFlowView(
-        title: String
+        title: String,
     ): TextView {
         val view = TextView(this)
         view.apply {
             text = title
             textSize = 12.0F
-            setTextColor(this.resources.getColor(android.R.color.white))
+            setTextColor(this.resources.getColor(android.R.color.white,null))
             setBackgroundResource(R.drawable.bg_item_flow_layout)
+            debounceClick {
+                toast(title)
+            }
         }
         return view
     }
