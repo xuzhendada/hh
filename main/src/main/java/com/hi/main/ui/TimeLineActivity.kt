@@ -6,6 +6,8 @@ import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
 import com.hi.common.ktx.ImageLoader
 import com.hi.common.ktx.createStableAdapter
+import com.hi.common.ktx.toolbar
+import com.hi.main.R
 import com.hi.main.cells.TimeLineCell
 import com.hi.main.databinding.ActivityTimeLineBinding
 import kotlinx.android.synthetic.main.activity_time_line.*
@@ -19,6 +21,7 @@ class TimeLineActivity : BaseActivity<ActivityTimeLineBinding>() {
     private lateinit var stableAdapter: StableAdapter
     private var selectPosition = 0//记录当前选择的
     override fun init() {
+        toolbar(R.string.time_line)
         stableAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@TimeLineActivity)
             onTimeLineCallback { position, type ->
