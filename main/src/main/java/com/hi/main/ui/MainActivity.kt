@@ -108,6 +108,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     getString(R.string.flow_layout) -> startActivity<FlowLayoutTestActivity>()
                     /*测试路由的话，打开test1模块,gradle.properties(project)->test1_dev=1*/
                     getString(R.string.a_route) -> navigate(RouterPath.TEST_MAIN)
+                    getString(R.string.time_line)->startActivity<TimeLineActivity>()
                 }
             }
         }
@@ -130,6 +131,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         itemCellList.add(BtnCell(getString(R.string.select_img)))
         itemCellList.add(BtnCell(getString(R.string.flow_layout)))
         itemCellList.add(BtnCell(getString(R.string.a_route)))
+        itemCellList.add(BtnCell(getString(R.string.time_line)))
         mAdapter.submitList(itemCellList)
     }
 }

@@ -11,4 +11,5 @@
     <string name="camera">CameraX</string>
     <string name="flow_layout">流式布局</string>
     <string name="a_route">阿里路由跳转</string>
+    <string name="time_line">时间线</string>
 </resources>

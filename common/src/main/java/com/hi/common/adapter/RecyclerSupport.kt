@@ -11,4 +11,11 @@ class RecyclerSupport {
     infix fun onSimpleCallback(block: (position: Int) -> Unit) {
         simpleCallback = block
     }
+
+    var timeLineCallBack: ((position: Int, type: Int) -> Unit)? = null
+
+
+    infix fun onTimeLineCallback(block: (position: Int, type: Int) -> Unit) {
+        timeLineCallBack = block
+    }
 }
