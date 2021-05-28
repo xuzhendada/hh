@@ -30,6 +30,9 @@
         <activity
             android:name=".ui.TimeLineActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.FlowLayoutActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
