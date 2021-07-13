@@ -14,7 +14,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += [AROUTER_MODULE_NAME: project.getName()]
@@ -43,6 +42,7 @@ android {
     kotlinOptions {
         jvmTarget = 1.8
     }
+    kapt.includeCompileClasspath = false
 }
 
 dependencies {
