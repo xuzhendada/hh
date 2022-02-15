@@ -1,11 +1,11 @@
 package com.xz.hh.cells
 
 import android.view.View
+import com.hi.common.data.response.ListResponse
 import com.xz.hh.R
 import com.xz.hh.adapter.ItemCell
 import com.xz.hh.adapter.RecyclerSupport
 import com.xz.hh.adapter.RecyclerVH
-import com.xz.hh.data.response.ListResponse
 import com.xz.hh.ktx.debounceClick
 import kotlinx.android.synthetic.main.item_wan.view.*
 

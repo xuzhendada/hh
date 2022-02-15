@@ -1,21 +1,36 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply from: 'config.gradle'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
-
+    compileSdkVersion 30
+    buildToolsVersion '29.0.3'
     defaultConfig {
-        applicationId "com.xz.hh"
-        minSdkVersion 23
-        targetSdkVersion 29
+        minSdkVersion 26
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+    flavorDimensions("environment")
+    productFlavors {
+        alpha {
+
+        }
+        beta {
+
+        }
+        product {
+
+        }
     }
 
     buildTypes {
@@ -27,36 +42,23 @@ android {
     kotlinOptions {
         jvmTarget = 1.8
     }
+    kapt.includeCompileClasspath = false
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.core:core-ktx:1.3.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    kapt room_kapt
-    kapt moshi_kapt
-    kapt gilde_kapt
-    api constraintlayout
-    api navigation_fragment_ktx
-    api room_coroutines
-    api lifecycle_extensions
-    api lifecycle_viewmodel_ktx
-    api work_runtime_ktx
-    api retrofit_moshi
-    api logging_interceptor
-    api moshi
-    api glide_okhttp
-    api mmkv
-    api arouter_api
-    api smart_refresh
-    api lottie
-    api recyclerView
-    api paging
-    api paging_common
-    api paging_rxjava2
-    api anko
+    kapt hilt_kapt
+    kapt hilt_androidx_kapt
+    compileOnly hilt_android
+    if (test2_dev.toBoolean()) {
+        implementation project(path: ':test2')
+    }
+    if (test1_dev.toBoolean()) {
+        implementation project(path: ':test1')
+    }
+    if (main_dev.toBoolean()) {
+        implementation project(path: ':main')
+    }
+    if (common_dev.toBoolean()) {
+        implementation project(path: ':common')
+    }
 }

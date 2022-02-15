@@ -1,7 +1,7 @@
 package com.xz.hh.paging
 
 import androidx.paging.PagingSource
-import com.xz.hh.api.ApiService
+import com.hi.common.api.ApiService
 import com.xz.hh.data.response.ArticleResponse
 import java.lang.Exception
 

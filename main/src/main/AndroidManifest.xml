@@ -1,0 +1,38 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hi.main">
+
+    <application>
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.PageRecyclerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SampleRecyclerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hi.main.ui.TopFoldActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentTheme" />
+        <activity
+            android:name=".ui.SmartRefreshActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.RoomTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SelectImgActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.FlowLayoutTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.TimeLineActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.FlowLayoutActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

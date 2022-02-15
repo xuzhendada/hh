@@ -1,6 +1,6 @@
 package com.xz.hh.adapter
 
-import com.xz.hh.ktx.ImageLoader
+import com.hi.common.ktx.ImageLoader
 
 
 class RecyclerSupport {
