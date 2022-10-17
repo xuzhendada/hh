@@ -2,11 +2,8 @@ package com.hi.main.ui
 
 import android.content.Intent
 import androidx.activity.viewModels
-import androidx.arch.core.util.Function
 import androidx.core.os.bundleOf
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell

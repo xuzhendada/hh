@@ -72,7 +72,7 @@ class SelectImgActivity : BaseActivity<ActivitySelectImgBinding>() {
             .forResult(100)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.select_img_activity_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
@@ -105,6 +105,8 @@ class SelectImgActivity : BaseActivity<ActivitySelectImgBinding>() {
         else -> super.onOptionsItemSelected(item)
     }
 
+
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {

@@ -21,9 +21,9 @@
         <activity
             android:name=".ui.RoomTestActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.SelectImgActivity"
-            android:screenOrientation="portrait" />
+<!--        <activity-->
+<!--            android:name=".ui.SelectImgActivity"-->
+<!--            android:screenOrientation="portrait" />-->
         <activity
             android:name=".ui.FlowLayoutTestActivity"
             android:screenOrientation="portrait" />
