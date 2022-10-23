@@ -9,7 +9,7 @@ import com.hi.common.ktx.*
 import com.hi.main.R
 import com.hi.main.cells.ArticleCell
 import com.hi.main.databinding.ActivitySmartRefreshBinding
-import com.hi.main.vm.HiltViewModel
+import com.hi.main.vm.HhHiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_smart_refresh.*
 
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_smart_refresh.*
  */
 @AndroidEntryPoint
 class SmartRefreshActivity : BaseActivity<ActivitySmartRefreshBinding>() {
-    private val hiltViewModel: HiltViewModel by viewModels()
+    private val hiltViewModel: HhHiltViewModel by viewModels()
     private lateinit var stableAdapter: StableAdapter
     private var page = 1
 

@@ -1,8 +1,8 @@
 package com.hi.common.di
 
 import android.app.Application
-import com.hi.common.api.Api
-import com.hi.common.data.HhRepository
+import com.hi.common.api.HhApi
+import com.hi.common.data.HhInterfaceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,11 +19,12 @@ import javax.inject.Singleton
 @InstallIn(ActivityComponent::class)
 object HiltApi {
     @Provides
-    fun provideHhRepository(hhApi: Api) = HhRepository(hhApi)
+    @Singleton
+    fun provideHhRepository(hhApi: HhApi) = HhInterfaceImpl(hhApi)
 
     @Provides
-    fun provideHhApi(retrofit: Retrofit): Api = retrofit.create(
-        Api::class.java)
+    fun provideHhApi(retrofit: Retrofit): HhApi = retrofit.create(
+        HhApi::class.java)
 
     @Provides
     @Singleton

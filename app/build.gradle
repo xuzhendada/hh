@@ -18,7 +18,7 @@ android {
         multiDexEnabled true
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                arguments += [AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
@@ -44,12 +44,13 @@ android {
     kotlinOptions {
         jvmTarget = 1.8
     }
+    namespace 'com.xz.hh'
     kapt.includeCompileClasspath = false
 }
 
 dependencies {
     implementation hilt_android
-    kapt hilt_kapt
+    kapt "com.google.dagger:hilt-android-compiler:2.44"
     if (test2_dev.toBoolean()) {
         implementation project(path: ':test2')
     }

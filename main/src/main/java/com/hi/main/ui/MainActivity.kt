@@ -22,7 +22,7 @@ import com.hi.common.ktx.toolbar
 import com.hi.main.R
 import com.hi.main.cells.BtnCell
 import com.hi.main.databinding.ActivityMainBinding
-import com.hi.main.vm.HiltViewModel
+import com.hi.main.vm.HhHiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -35,7 +35,7 @@ import kotlin.concurrent.thread
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     private lateinit var mAdapter: StableAdapter
 
-    private val hiltViewModel: HiltViewModel by viewModels()
+    private val hiltViewModel: HhHiltViewModel by viewModels()
 
     @Inject
     lateinit var permissionsFactory: RequestPermissionsFactory

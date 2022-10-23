@@ -3,6 +3,7 @@ package com.hi.main.vm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.hi.common.api.ApiService
 import com.hi.common.data.wanRequest
 import com.hi.common.data.response.ListResponse
@@ -17,9 +18,9 @@ class WanViewModel : ViewModel() {
     fun subscribeList() = listData
 
     fun wanListRequest() {
-        wanRequest<List<ListResponse>> {
+        wanRequest {
             loader {
-                ApiService.mApi.getList()
+                ApiService.mApi.getList().asLiveData().value!!
             }
             onRequestResult {
                 listData.value = it

@@ -10,7 +10,7 @@ buildscript {
         version_code = 1
         version_name = "1.0"
 
-        kotlin_version = '1.7.10'
+        kotlin_version = '1.7.20'
         kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
         kotlin_reflect = "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 //        fragment_ktx = 'androidx.fragment:fragment-ktx:1.3.0-beta01'
@@ -41,7 +41,7 @@ buildscript {
         material = "com.google.android.material:material:1.2.1"
         //jetpack
         //hilt
-        hilt_version = '2.43.2'
+        hilt_version = '2.44'
         hilt_android = "com.google.dagger:hilt-android:$hilt_version"
         hilt_kapt = "com.google.dagger:hilt-android-compiler:$hilt_version"
 //        hilt_lifecycle_viewmodel = 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
@@ -88,7 +88,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:7.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.10'
         classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0'

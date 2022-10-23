@@ -2,6 +2,7 @@ package com.hi.main.page
 
 
 import android.util.Log
+import androidx.lifecycle.asLiveData
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.hi.common.api.ApiService
@@ -14,10 +15,11 @@ class PageSource : PagingSource<Int, Article>() {
             val page = params.key ?: 0
             val result = ApiService.mApi.getHomeArticle(page)
             Log.d("TAG", "当前页$page")
+            val dataList = result.asLiveData().value!!.data
             LoadResult.Page(
-                data = result.data.datas,
+                data = dataList.datas,
                 prevKey = null,
-                nextKey = if (result.data.curPage == result.data.pageCount) null else page + 1
+                nextKey = if (dataList.curPage == dataList.pageCount) null else page + 1
             )
         } catch (e: Exception) {
             LoadResult.Error(e)
