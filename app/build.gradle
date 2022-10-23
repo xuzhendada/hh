@@ -1,17 +1,19 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
+}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '29.0.3'
+    compileSdk compile_sdk_version
+    buildToolsVersion build_tools_version
     defaultConfig {
-        minSdkVersion 26
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName version_name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         javaCompileOptions {
@@ -42,13 +44,13 @@ android {
     kotlinOptions {
         jvmTarget = 1.8
     }
+    namespace 'com.xz.hh'
     kapt.includeCompileClasspath = false
 }
 
 dependencies {
-    kapt hilt_kapt
-    kapt hilt_androidx_kapt
-    compileOnly hilt_android
+    implementation hilt_android
+    kapt "com.google.dagger:hilt-android-compiler:2.44"
     if (test2_dev.toBoolean()) {
         implementation project(path: ':test2')
     }

@@ -2,11 +2,8 @@ package com.hi.main.ui
 
 import android.content.Intent
 import androidx.activity.viewModels
-import androidx.arch.core.util.Function
 import androidx.core.os.bundleOf
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hi.common.BaseActivity
 import com.hi.common.adapter.ItemCell
@@ -25,7 +22,7 @@ import com.hi.common.ktx.toolbar
 import com.hi.main.R
 import com.hi.main.cells.BtnCell
 import com.hi.main.databinding.ActivityMainBinding
-import com.hi.main.vm.HiltViewModel
+import com.hi.main.vm.HhHiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -38,7 +35,7 @@ import kotlin.concurrent.thread
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     private lateinit var mAdapter: StableAdapter
 
-    private val hiltViewModel: HiltViewModel by viewModels()
+    private val hiltViewModel: HhHiltViewModel by viewModels()
 
     @Inject
     lateinit var permissionsFactory: RequestPermissionsFactory

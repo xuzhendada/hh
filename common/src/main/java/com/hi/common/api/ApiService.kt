@@ -24,8 +24,8 @@ class ApiService private constructor() {
                 .addConverterFactory(MoshiConverterFactory.create())
                 .client(mClientBuilder).build()
         }
-        val mApi: Api by lazy {
-            mRetrofit.create(Api::class.java)
+        val mApi: HhApi by lazy {
+            mRetrofit.create(HhApi::class.java)
         }
     }
 }

@@ -1,12 +1,12 @@
 package com.hi.common.di
 
 import android.app.Application
-import com.hi.common.api.Api
-import com.hi.common.data.HhRepository
+import com.hi.common.api.HhApi
+import com.hi.common.data.HhInterfaceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,14 +16,15 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object HiltApi {
     @Provides
-    fun provideHhRepository(hhApi: Api) = HhRepository(hhApi)
+    @Singleton
+    fun provideHhRepository(hhApi: HhApi) = HhInterfaceImpl(hhApi)
 
     @Provides
-    fun provideHhApi(retrofit: Retrofit): Api = retrofit.create(
-        Api::class.java)
+    fun provideHhApi(retrofit: Retrofit): HhApi = retrofit.create(
+        HhApi::class.java)
 
     @Provides
     @Singleton

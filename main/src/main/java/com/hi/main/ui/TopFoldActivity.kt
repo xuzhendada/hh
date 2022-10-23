@@ -13,7 +13,7 @@ import com.hi.main.R
 import com.hi.main.cells.ImgCell
 import com.hi.main.cells.WanCell
 import com.hi.main.databinding.ActivityTopFoldBinding
-import com.hi.main.vm.HiltViewModel
+import com.hi.main.vm.HhHiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_top_fold.*
 import kotlin.math.abs
@@ -27,7 +27,7 @@ class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
     private lateinit var mAdapter: StableAdapter
     private lateinit var viewPageAdapter: StableAdapter
 
-    private val hiltViewModel: HiltViewModel by viewModels()
+    private val hiltViewModel: HhHiltViewModel by viewModels()
 
     override fun init() {
         toolbar()

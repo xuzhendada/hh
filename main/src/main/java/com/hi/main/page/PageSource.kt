@@ -2,7 +2,9 @@ package com.hi.main.page
 
 
 import android.util.Log
+import androidx.lifecycle.asLiveData
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.hi.common.api.ApiService
 import com.hi.common.data.response.Article
 import java.lang.Exception
@@ -21,5 +23,9 @@ class PageSource : PagingSource<Int, Article>() {
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
+        return 0
     }
 }

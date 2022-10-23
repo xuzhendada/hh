@@ -69,7 +69,7 @@ class SampleRecyclerActivity : BaseActivity<ActivitySampleRecyclerBinding>() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.sample_activity_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }

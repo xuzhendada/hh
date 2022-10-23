@@ -5,13 +5,19 @@ import com.hi.common.data.response.ListResponse
 import com.hi.common.data.WanResponse
 import com.hi.common.data.response.Article
 import com.hi.common.data.response.Banner
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 /**
  * wanAndroidApi
  */
-interface Api {
+interface HhApi {
+
     @GET("/wxarticle/chapters/json")
     suspend fun getList(): WanResponse<List<ListResponse>>
 

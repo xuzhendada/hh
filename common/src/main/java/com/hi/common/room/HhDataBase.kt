@@ -12,7 +12,7 @@ import com.hi.common.room.entity.StudentEntity
  * @date : 2020/11/10 16:49
  * @description :
  */
-@Database(entities = [StudentEntity::class], version = 1)
+@Database(entities = [StudentEntity::class], version = 1, exportSchema = false)
 abstract class HhDataBase : RoomDatabase() {
     companion object {
         @Synchronized
