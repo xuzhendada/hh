@@ -20,7 +20,7 @@ class WanViewModel : ViewModel() {
     fun wanListRequest() {
         wanRequest {
             loader {
-                ApiService.mApi.getList().asLiveData().value!!
+                ApiService.mApi.getList()
             }
             onRequestResult {
                 listData.value = it

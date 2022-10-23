@@ -19,11 +19,11 @@ import retrofit2.http.Path
 interface HhApi {
 
     @GET("/wxarticle/chapters/json")
-    suspend fun getList(): Flow<WanResponse<List<ListResponse>>>
+    suspend fun getList(): WanResponse<List<ListResponse>>
 
     @GET("/article/list/{page}/json")
-    suspend fun getHomeArticle(@Path("page") page: Int): Flow<WanResponse<PageListResult<Article>>>
+    suspend fun getHomeArticle(@Path("page") page: Int): WanResponse<PageListResult<Article>>
 
     @GET("/banner/json")
-    suspend fun getBanner(): Flow<WanResponse<List<Banner>>>
+    suspend fun getBanner(): WanResponse<List<Banner>>
 }
