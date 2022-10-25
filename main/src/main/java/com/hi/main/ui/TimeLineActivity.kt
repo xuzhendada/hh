@@ -10,7 +10,6 @@ import com.hi.common.ktx.toolbar
 import com.hi.main.R
 import com.hi.main.cells.TimeLineCell
 import com.hi.main.databinding.ActivityTimeLineBinding
-import kotlinx.android.synthetic.main.activity_time_line.*
 
 /**
  * @author wbxuzhen
@@ -35,9 +34,6 @@ class TimeLineActivity : BaseActivity<ActivityTimeLineBinding>() {
                                 stableAdapter.notifyDataSetChanged()
                                 selectPosition = position
                             }
-//                            stableAdapter.notifyItemChanged(position, true)
-//                            stableAdapter.notifyItemChanged(selectPosition, false)
-//                            selectPosition = position
                         }
                     }
                     1 -> {
@@ -48,7 +44,7 @@ class TimeLineActivity : BaseActivity<ActivityTimeLineBinding>() {
 
             }
         }
-        recycler.apply {
+        bind.recycler.apply {
             layoutManager = LinearLayoutManager(this@TimeLineActivity)
             adapter = stableAdapter
         }

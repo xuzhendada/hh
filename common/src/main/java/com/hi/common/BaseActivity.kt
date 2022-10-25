@@ -12,6 +12,7 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
     protected lateinit var bind: T
 
+    @Suppress("UNCHECKED_CAST")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //利用反射 调置顶的viewBinding的inflate方法填充视图
@@ -30,7 +31,9 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
     }
 
     abstract fun init()
+
     private var beforeViewDrawn = true
+
     override fun onResume() {
         super.onResume()
         if (beforeViewDrawn) {

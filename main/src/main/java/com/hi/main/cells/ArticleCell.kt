@@ -1,13 +1,13 @@
 package com.hi.main.cells
 
 import android.view.View
+import androidx.appcompat.widget.AppCompatTextView
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.RecyclerSupport
 import com.hi.common.adapter.RecyclerVH
 import com.hi.common.data.response.Article
 import com.hi.common.ktx.debounceClick
 import com.hi.main.R
-import kotlinx.android.synthetic.main.item_article.view.*
 
 class ArticleCell(val articleResponse: Article) : ItemCell {
     override fun layoutId() = R.layout.item_article
@@ -30,7 +30,8 @@ class ArticleVH(itemView: View, support: RecyclerSupport) : RecyclerVH(itemView,
     override fun bind(itemCell: ItemCell, payloads: MutableList<Any>) {
         super.bind(itemCell, payloads)
         if (itemCell is ArticleCell) {
-            itemView.article.text = itemCell.articleResponse.title
+            itemView.findViewById<AppCompatTextView>(R.id.article).text =
+                itemCell.articleResponse.title
         }
     }
 }

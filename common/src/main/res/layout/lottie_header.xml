@@ -14,5 +14,4 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/material_wave_loading" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

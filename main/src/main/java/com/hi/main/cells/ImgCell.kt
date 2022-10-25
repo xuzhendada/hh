@@ -1,12 +1,12 @@
 package com.hi.main.cells
 
 import android.view.View
+import android.widget.ImageView
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.RecyclerSupport
 import com.hi.common.adapter.RecyclerVH
 import com.hi.common.data.response.Banner
 import com.hi.main.R
-import kotlinx.android.synthetic.main.item_img.view.*
 
 /**
  * @author : wbxuzhen
@@ -28,7 +28,8 @@ class ImgVh(itemView: View, support: RecyclerSupport) : RecyclerVH(itemView, sup
     override fun bind(itemCell: ItemCell, payloads: MutableList<Any>) {
         super.bind(itemCell, payloads)
         if (itemCell is ImgCell) {
-            support.imageLoader?.display(itemView.img, itemCell.banner.imagePath)
+            val imgView=itemView.findViewById<ImageView>(R.id.img)
+            support.imageLoader?.display(imgView, itemCell.banner.imagePath)
         }
     }
 }

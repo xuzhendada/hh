@@ -1,10 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
 }
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk compile_sdk_version
@@ -49,8 +48,8 @@ android {
 }
 
 dependencies {
-    implementation hilt_android
-    kapt "com.google.dagger:hilt-android-compiler:2.44"
+    api hilt_android
+    kapt hilt_kapt
     if (test2_dev.toBoolean()) {
         implementation project(path: ':test2')
     }

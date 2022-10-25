@@ -1,11 +1,11 @@
 package com.hi.main.cells
 
 import android.view.View
+import androidx.appcompat.widget.AppCompatTextView
 import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.RecyclerSupport
 import com.hi.common.adapter.RecyclerVH
 import com.hi.main.R
-import kotlinx.android.synthetic.main.item_flow_layout.view.*
 
 /**
  * @author wbxuzhen
@@ -27,7 +27,7 @@ class FlowLayoutVH(itemView: View, support: RecyclerSupport) : RecyclerVH(itemVi
     override fun bind(itemCell: ItemCell, payloads: MutableList<Any>) {
         super.bind(itemCell, payloads)
         if (itemCell is FlowLayoutCell) {
-            itemView.txStudentName.text = itemCell.name
+            itemView.findViewById<AppCompatTextView>(R.id.txStudentName).text=itemCell.name
         }
     }
 }

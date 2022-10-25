@@ -27,10 +27,3 @@ inline fun <reified T : FragmentActivity> FragmentActivity.startActivity(extras:
     }
     startActivity(intent)
 }
-
-inline fun <reified T : FragmentActivity> Fragment.startActivity(extras: Bundle? = null) {
-    val intent = Intent(requireContext(), T::class.java).apply {
-        if (extras != null) putExtras(extras)
-    }
-    startActivity(intent)
-}

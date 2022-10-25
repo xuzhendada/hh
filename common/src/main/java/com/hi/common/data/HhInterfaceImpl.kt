@@ -14,19 +14,11 @@ import javax.inject.Inject
 class HhInterfaceImpl @Inject constructor(
     private val api: HhApi
 ) : HhInterFace {
-    override suspend fun getList(): Flow<WanResponse<List<ListResponse>>> = flow {
-        api.getList()
-    }
+    override suspend fun getList(): WanResponse<List<ListResponse>> = api.getList()
 
+    override suspend fun getHomeArticle(page: Int): WanResponse<PageListResult<Article>> =
+        api.getHomeArticle(page)
 
-    override suspend fun getHomeArticle(page: Int): Flow<WanResponse<PageListResult<Article>>> =
-        flow {
-            api.getHomeArticle(page)
-
-        }
-
-    override suspend fun getBanner(): Flow<WanResponse<List<Banner>>> = flow {
-        api.getBanner()
-    }
+    override suspend fun getBanner(): WanResponse<List<Banner>> = api.getBanner()
 
 }

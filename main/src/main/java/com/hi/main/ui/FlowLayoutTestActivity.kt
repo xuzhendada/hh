@@ -10,11 +10,6 @@ import com.hi.common.room.STUDENT_DATA
 import com.hi.main.R
 import com.hi.main.databinding.ActivityFlowLayoutTestBinding
 
-/**
- * Creatd by wbxuzhen on 2021/3/26 17:11
- * description:流式布局
- */
-
 class FlowLayoutTestActivity : BaseActivity<ActivityFlowLayoutTestBinding>() {
     override fun init() {
         toolbar(R.string.flow_layout)
@@ -45,7 +40,7 @@ class FlowLayoutTestActivity : BaseActivity<ActivityFlowLayoutTestBinding>() {
         view.apply {
             text = title
             textSize = 12.0F
-            setTextColor(this.resources.getColor(android.R.color.white,null))
+            setTextColor(this.resources.getColor(android.R.color.white, null))
             setBackgroundResource(R.drawable.bg_item_flow_layout)
             debounceClick {
                 toast(title)

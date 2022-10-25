@@ -35,3 +35,13 @@ inline fun <E> LiveData<HhResult<E>>.handleResult(
         }
     }
 }
+
+inline fun <E> HhResult<E>.handleResult(
+    crossinline handler: HhResultHandler<E>.() -> Unit
+) {
+    val responseHandler = HhResultHandler<E>().apply(handler)
+    when (this) {
+        is HhResult.Success -> responseHandler.invokeSuccess(this.value)
+        is HhResult.Failure -> responseHandler.invokeFailure(this.throwable)
+    }
+}

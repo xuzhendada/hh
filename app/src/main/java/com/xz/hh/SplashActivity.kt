@@ -8,10 +8,6 @@ import com.hi.main.ui.MainActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-/**
- *  Created by wbxuzhen on 2020/11/17 13:15.
- *  des:启动页
- */
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

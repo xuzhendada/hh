@@ -8,10 +8,6 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/**
- * Creatd by wbxuzhen on 2021/3/26 15:25
- * description:
- */
 class RoomViewModel(application: Application) : AndroidViewModel(application) {
 
     fun subscribe() = liveDate

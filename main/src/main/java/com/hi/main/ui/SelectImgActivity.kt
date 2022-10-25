@@ -21,13 +21,9 @@ import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.GlideEngine
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_select_img.*
 import javax.inject.Inject
 
-/**
- *  Created by wbxuzhen on 2020/11/19 13:45.
- *  des:图片选择
- */
+
 @AndroidEntryPoint
 class SelectImgActivity : BaseActivity<ActivitySelectImgBinding>() {
     private var imgList = MutableLiveData<List<Uri>>()
@@ -43,7 +39,7 @@ class SelectImgActivity : BaseActivity<ActivitySelectImgBinding>() {
         stableAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@SelectImgActivity)
         }
-        recycler.apply {
+        bind.recycler.apply {
             layoutManager = GridLayoutManager(this@SelectImgActivity, 4)
             adapter = stableAdapter
         }
