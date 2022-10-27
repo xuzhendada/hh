@@ -12,10 +12,8 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
     protected lateinit var bind: T
 
-    @Suppress("UNCHECKED_CAST")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //利用反射 调置顶的viewBinding的inflate方法填充视图
         val type = javaClass.genericSuperclass
         if (type is ParameterizedType) {
             val clazz = type.actualTypeArguments[0] as Class<*>

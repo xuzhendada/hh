@@ -30,9 +30,9 @@ class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
 
     override fun init() {
         toolbar()
-        bind.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+        bind.appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             toolbarTitle(if (abs(verticalOffset) >= appBarLayout.totalScrollRange) getString(R.string.coordinator_layout) else "")
-        })
+        }
         mAdapter = createStableAdapter {
             onSimpleCallback { position ->
                 val itemCell = mAdapter.currentList()[position] as WanCell
