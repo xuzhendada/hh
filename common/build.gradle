@@ -64,4 +64,5 @@ dependencies {
     api('com.alibaba.android:vlayout:1.3.0@aar') {
         transitive = true
     }
+    testImplementation 'junit:junit:4.13.2'
 }
