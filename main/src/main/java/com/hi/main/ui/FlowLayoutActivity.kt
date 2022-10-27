@@ -10,7 +10,6 @@ import com.hi.common.widget.CardLayoutManager
 import com.hi.main.R
 import com.hi.main.cells.FlowLayoutCell
 import com.hi.main.databinding.ActivityFlowLayoutBinding
-import kotlinx.android.synthetic.main.activity_flow_layout.*
 
 /**
  * @author wbxuzhen
@@ -22,7 +21,7 @@ class FlowLayoutActivity : BaseActivity<ActivityFlowLayoutBinding>() {
     override fun init() {
         toolbar(R.string.flow_layout2)
         stableAdapter = createStableAdapter { }
-        recycler.apply {
+        bind.recycler.apply {
             layoutManager = CardLayoutManager()
             adapter = stableAdapter
         }

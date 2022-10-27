@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.hi.common.BaseActivity
@@ -20,7 +19,6 @@ import com.hi.main.R
 import com.hi.main.cells.WanCell
 import com.hi.main.databinding.ActivitySampleRecyclerBinding
 import com.hi.main.vm.WanViewModel
-import kotlinx.android.synthetic.main.activity_sample_recycler.*
 
 /**
  * 简单的recyclerView实现
@@ -43,7 +41,7 @@ class SampleRecyclerActivity : BaseActivity<ActivitySampleRecyclerBinding>() {
             }
         }
         toast(intent.getStringExtra(BundleConst.SAMPLE_ACTIVITY) ?: "")
-        recycler.apply {
+        bind.recycler.apply {
             addItemDecoration(
                 UniversalItemDecoration(
                     this@SampleRecyclerActivity,
@@ -56,7 +54,7 @@ class SampleRecyclerActivity : BaseActivity<ActivitySampleRecyclerBinding>() {
         }
         mWanViewModel.subscribeList().applyResponse(this) {
             onSuccess {
-                progress_bar.visibility = View.GONE
+                bind.progressBar.visibility = View.GONE
                 val itemCellList = mutableListOf<ItemCell>()
                 it.forEach { res ->
                     itemCellList.add(WanCell(res))

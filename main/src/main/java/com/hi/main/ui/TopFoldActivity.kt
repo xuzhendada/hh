@@ -15,7 +15,6 @@ import com.hi.main.cells.WanCell
 import com.hi.main.databinding.ActivityTopFoldBinding
 import com.hi.main.vm.HhHiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_top_fold.*
 import kotlin.math.abs
 
 /**
@@ -31,7 +30,7 @@ class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
 
     override fun init() {
         toolbar()
-        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+        bind.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             toolbarTitle(if (abs(verticalOffset) >= appBarLayout.totalScrollRange) getString(R.string.coordinator_layout) else "")
         })
         mAdapter = createStableAdapter {
@@ -43,10 +42,10 @@ class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
         viewPageAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@TopFoldActivity)
         }
-        viewPager.apply {
+        bind.viewPager.apply {
             adapter = viewPageAdapter
         }
-        recyclerView.apply {
+        bind.recyclerView.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@TopFoldActivity)
         }
@@ -55,28 +54,34 @@ class TopFoldActivity : BaseActivity<ActivityTopFoldBinding>() {
 
     override fun viewDrawn() {
         hiltViewModel.apply {
-            getBanner().handleResult(this@TopFoldActivity) {
-                onSuccess {
-                    val imgCellList = mutableListOf<ImgCell>()
-                    it.data.forEach { banner ->
-                        imgCellList.add(ImgCell(banner))
+            getBanner()
+            getArticle()
+            bannerData.observe(this@TopFoldActivity) {
+                it.handleResult {
+                    onSuccess {
+                        val imgCellList = mutableListOf<ImgCell>()
+                        it.data.forEach { banner ->
+                            imgCellList.add(ImgCell(banner))
+                        }
+                        viewPageAdapter.submitList(imgCellList)
                     }
-                    viewPageAdapter.submitList(imgCellList)
-                }
-                onFailure { e ->
-                    Log.d("xuzhen", "$e")
+                    onFailure { e ->
+                        Log.d("TAG", "$e")
+                    }
                 }
             }
-            getArticle().handleResult(this@TopFoldActivity) {
-                onSuccess {
-                    val itemCellList = mutableListOf<ItemCell>()
-                    it.data.forEach { listResponse ->
-                        itemCellList.add(WanCell(listResponse))
+            articleLiveData.observe(this@TopFoldActivity) {
+                it.handleResult {
+                    onSuccess {
+                        val itemCellList = mutableListOf<ItemCell>()
+                        it.data.forEach { listResponse ->
+                            itemCellList.add(WanCell(listResponse))
+                        }
+                        mAdapter.submitList(itemCellList)
                     }
-                    mAdapter.submitList(itemCellList)
-                }
-                onFailure { e ->
-                    Log.d("xuzhen", "$e")
+                    onFailure { e ->
+                        Log.d("TAG", "$e")
+                    }
                 }
             }
         }

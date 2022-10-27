@@ -14,7 +14,6 @@ import com.hi.main.page.PageAdapter
 import com.hi.main.R
 import com.hi.main.databinding.ActivityPageRecyclerBinding
 import com.hi.main.vm.PagingViewModel
-import kotlinx.android.synthetic.main.activity_page_recycler.*
 
 /**
  * jetPack->paging
@@ -29,7 +28,7 @@ class PageRecyclerActivity : BaseActivity<ActivityPageRecyclerBinding>() {
 
     override fun init() {
         toolbar(R.string.page_layout)
-        page_recycler.apply {
+        bind.pageRecycler.apply {
             layoutManager = LinearLayoutManager(this@PageRecyclerActivity)
             adapter = mAdapter
             addItemDecoration(

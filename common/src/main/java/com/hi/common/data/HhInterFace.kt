@@ -6,7 +6,7 @@ import com.hi.common.data.response.ListResponse
 import kotlinx.coroutines.flow.Flow
 
 interface HhInterFace {
-    suspend fun getList(): Flow<WanResponse<List<ListResponse>>>
-    suspend fun getHomeArticle(page: Int): Flow<WanResponse<PageListResult<Article>>>
-    suspend fun getBanner(): Flow<WanResponse<List<Banner>>>
+    suspend fun getList(): WanResponse<List<ListResponse>>
+    suspend fun getHomeArticle(page: Int): WanResponse<PageListResult<Article>>
+    suspend fun getBanner(): WanResponse<List<Banner>>
 }

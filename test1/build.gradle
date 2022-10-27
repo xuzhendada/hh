@@ -1,7 +1,9 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.library'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
 
 android {
     compileSdkVersion compile_sdk_version
@@ -30,5 +32,7 @@ android {
 
 dependencies {
     kapt arouter_kapt
+    api hilt_android
+    kapt hilt_kapt
     compileOnly project(path: ':common')
 }

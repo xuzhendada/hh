@@ -10,7 +10,9 @@ import com.hi.common.adapter.ItemCell
 import com.hi.common.adapter.StableAdapter
 import com.hi.common.constant.BundleConst
 import com.hi.common.constant.RouterPath
-import com.hi.common.data.handleResult
+import com.hi.common.data.HhResult
+import com.hi.common.data.WanResponse
+import com.hi.common.data.response.Banner
 import com.hi.common.ktx.createStableAdapter
 import com.hi.common.ktx.intent.ActivityForResultFactory
 import com.hi.common.ktx.intent.RequestPermissionsFactory
@@ -24,7 +26,6 @@ import com.hi.main.cells.BtnCell
 import com.hi.main.databinding.ActivityMainBinding
 import com.hi.main.vm.HhHiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 import kotlin.concurrent.thread
 
@@ -52,6 +53,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         thread {
             liveData.postValue(10)
         }
+        subscribeBanner()
         mAdapter = createStableAdapter {
             onSimpleCallback { position ->
                 val itemCell = mAdapter.currentList()[position] as BtnCell
@@ -77,25 +79,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                             )
                         ) {
                             onGranted {
-                                toast("申请成功")
+                                toast("onGranted")
                             }
                             onDenied {
-                                toast("申请失败")
+                                toast("onDenied")
                             }
                         }
                     }
                     getString(R.string.coordinator_layout) -> startActivity<TopFoldActivity>()
                     getString(R.string.page_layout) -> startActivity<PageRecyclerActivity>()
-                    getString(R.string.hilt_network) -> {
-                        hiltViewModel.getArticle().handleResult(this@MainActivity) {
-                            onSuccess {
-                                toast(it.data.toString())
-                            }
-                            onFailure {
-                                toast(it.toString())
-                            }
-                        }
-                    }
+                    getString(R.string.hilt_network) -> hiltViewModel.getBanner()
                     getString(R.string.smart_refresh_layout) -> {
                         val intent = Intent(this@MainActivity, SmartRefreshActivity::class.java)
                         startActivity(intent)
@@ -110,9 +103,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
             }
         }
-        recycler.apply {
+        bind.recycler.apply {
             adapter = mAdapter
             layoutManager = GridLayoutManager(this@MainActivity, 2)
+        }
+    }
+
+    private fun subscribeBanner() {
+        hiltViewModel.bannerData.observe(this) {
+            when (it) {
+                is HhResult.Success<WanResponse<List<Banner>>> -> {
+                    toast(it.value.data.toString())
+                }
+                is HhResult.Failure -> {
+                    toast(it.throwable.toString())
+                }
+                else -> {}
+            }
         }
     }
 

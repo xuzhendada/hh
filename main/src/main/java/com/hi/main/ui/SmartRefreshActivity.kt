@@ -11,7 +11,6 @@ import com.hi.main.cells.ArticleCell
 import com.hi.main.databinding.ActivitySmartRefreshBinding
 import com.hi.main.vm.HhHiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_smart_refresh.*
 
 /**
  * @author : wbxuzhen
@@ -26,6 +25,7 @@ class SmartRefreshActivity : BaseActivity<ActivitySmartRefreshBinding>() {
 
     override fun init() {
         toolbar(getString(R.string.smart_refresh_layout))
+        subscribeHomeArticle()
         stableAdapter = createStableAdapter {
             imageLoader = ImageLoader(this@SmartRefreshActivity)
             onSimpleCallback { position ->
@@ -35,35 +35,41 @@ class SmartRefreshActivity : BaseActivity<ActivitySmartRefreshBinding>() {
             }
         }
 
-        smartRefresh.setOnLoadMoreListener {
+        bind.smartRefresh.setOnLoadMoreListener {
             page++
             request()
         }
-        smartRefresh.setOnRefreshListener {
+        bind.smartRefresh.setOnRefreshListener {
             page = 1
             request()
         }
-        recycler.apply {
+        bind.recycler.apply {
             layoutManager = LinearLayoutManager(this@SmartRefreshActivity)
             adapter = stableAdapter
         }
-        recycler.downRefresh()
+        bind.recycler.downRefresh()
+    }
+
+    private fun subscribeHomeArticle() {
+        hiltViewModel.homeArticleLiveData.observe(this) {
+            it.handleResult {
+                onSuccess { data ->
+                    val temp = mutableListOf<ArticleCell>()
+                    data.data.datas.forEach { article ->
+                        temp.add(ArticleCell(article))
+                    }
+                    if (temp.isNotEmpty()) {
+                        stableAdapter.submitList(data.data.curPage, temp)
+                        bind.recycler.refreshSuccess(data.data.curPage <= data.data.pageCount)
+                    }
+                }
+                onFailure {
+                }
+            }
+        }
     }
 
     private fun request() {
-        hiltViewModel.getHomeArticle(pageIndex = page).handleResult(this) {
-            onSuccess {
-                val temp = mutableListOf<ArticleCell>()
-                it.data.datas.forEach { article ->
-                    temp.add(ArticleCell(article))
-                }
-                if (temp.isNotEmpty()) {
-                    stableAdapter.submitList(it.data.curPage, temp)
-                    recycler.refreshSuccess(it.data.curPage <= it.data.pageCount)
-                }
-            }
-            onFailure {
-            }
-        }
+        hiltViewModel.getHomeArticle(pageIndex = page)
     }
 }

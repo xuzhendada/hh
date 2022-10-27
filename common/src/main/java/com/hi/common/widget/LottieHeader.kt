@@ -3,11 +3,12 @@ package com.hi.common.widget
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import androidx.appcompat.widget.AppCompatTextView
+import com.airbnb.lottie.LottieAnimationView
 import com.hi.common.R
 import com.scwang.smartrefresh.layout.api.RefreshHeader
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.internal.InternalAbstract
-import kotlinx.android.synthetic.main.lottie_header.view.*
 
 /**
  * @author : wbxuzhen
@@ -17,8 +18,10 @@ import kotlinx.android.synthetic.main.lottie_header.view.*
 class LottieHeader @JvmOverloads constructor(
     context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : InternalAbstract(context, attrs, defStyleAttr), RefreshHeader {
+    private var lottieView: LottieAnimationView
     init {
-        View.inflate(context, R.layout.lottie_header, this)
+       val view= View.inflate(context, R.layout.lottie_header, this)
+        lottieView= view.findViewById(R.id.lottieView)
     }
 
     override fun onMoving(

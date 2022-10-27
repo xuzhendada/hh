@@ -34,7 +34,6 @@ class CardLayoutManager : RecyclerView.LayoutManager() {
         }
         var offsetX = 0
         var offsetY = 0
-        var viewH = 0
         for (i in 0 until itemCount) {
             recycler?.getViewForPosition(i)?.let { view ->
                 addView(view)
@@ -42,7 +41,6 @@ class CardLayoutManager : RecyclerView.LayoutManager() {
                 measureChildWithMargins(view, 0, 0)
                 val w = getDecoratedMeasuredWidth(view)
                 val h = getDecoratedMeasuredHeight(view)
-                viewH = h
                 var f = allItem.get(i)
                 if (f == null) f = Rect()
                 if (offsetX + w > width) {
@@ -56,7 +54,7 @@ class CardLayoutManager : RecyclerView.LayoutManager() {
                 }
                 //要针对于当前View   生成对应的Rect  然后放到allItem数组
                 allItem.put(i, f)
-                totalHeight = offsetY + viewH
+                totalHeight = offsetY + h
             }
         }
         recyclerViewFillView(recycler, state)
@@ -91,6 +89,7 @@ class CardLayoutManager : RecyclerView.LayoutManager() {
     private fun recyclerViewFillView(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
         //清空RecyclerView的子View
         recycler?.let {
+            state?.isPreLayout
             detachAndScrapAttachedViews(it)
             val phoneFrame = Rect(0, verticalScrollOffset, width, verticalScrollOffset + height)
             //将滑出屏幕的view进行回收
