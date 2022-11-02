@@ -74,6 +74,17 @@ buildscript {
         //activity
         activity_version = "1.5.1"
         activity_ktx = "androidx.activity:activity-ktx:$activity_version"
+        //compose
+        compose_activity = "androidx.activity:activity-compose:$activity_version"
+        compose_design_version = "1.2.1"
+        compose_material = "androidx.compose.material:material:$compose_design_version"
+        compose_animation = "androidx.compose.animation:animation:$compose_design_version"
+        compose_ui_tooling = "androidx.compose.ui:ui-tooling:$compose_design_version"
+        compose_ui_test = "androidx.compose.ui:ui-test-junit4:$compose_design_version"
+        compose_ui_preview = "androidx.compose.ui:ui-tooling-preview:$compose_design_version"
+        compose_lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+        nav_version = "2.5.2"
+        compose_navigation = "androidx.navigation:navigation-compose:$nav_version"
     }
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
@@ -92,7 +103,6 @@ buildscript {
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath 'com.dipien:bye-bye-jetifier:1.2.1'
     }
-
 }
 
 allprojects {
@@ -101,11 +111,10 @@ allprojects {
         maven { url "https://maven.aliyun.com/repository/google" }
         maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
         maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://jitpack.io" }
         google()
         mavenCentral()
-        maven { url "https://jitpack.io" }
     }
-
 }
 
 task clean(type: Delete) {
