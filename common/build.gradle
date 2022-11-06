@@ -29,6 +29,10 @@ android {
     buildFeatures {
         dataBinding true
         viewBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.3.2'
     }
 }
 
@@ -61,8 +65,13 @@ dependencies {
     api data_store
     api data_store_preferences
     api matisse
-    api('com.alibaba.android:vlayout:1.3.0@aar') {
-        transitive = true
-    }
+    api compose_activity
+    api compose_material
+    api compose_animation
+    api compose_lifecycle
+    api compose_ui_test
+    api compose_ui_preview
+    api compose_navigation
+    debugImplementation compose_ui_tooling
     testImplementation 'junit:junit:4.13.2'
 }

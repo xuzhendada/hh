@@ -40,3 +40,7 @@ dependencies {
     kapt hilt_kapt
     compileOnly project(path: ':common')
 }
+
+repositories {
+    google()
+}
