@@ -23,7 +23,7 @@ class Test1Activity : ComponentActivity() {
 
     @Preview
     @Composable
-    fun PreviewMessage(msg:String){
-        Text(msg)
+    fun PreviewMessage(){
+        Text("msg")
     }
 }
