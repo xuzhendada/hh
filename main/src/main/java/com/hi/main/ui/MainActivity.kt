@@ -105,6 +105,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     getString(R.string.flow_layout2) -> startActivity<FlowLayoutActivity>()
                     getString(R.string.swipe_refresh) -> startActivity<SwipeRefreshActivity>()
                     getString(R.string.draw_board) -> startActivity<DrawBoardActivity>()
+                    getString(R.string.camera_test) -> startActivity<CameraXTestActivity>()
                 }
             }
         }
@@ -147,6 +148,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         itemCellList.add(BtnCell(getString(R.string.time_line)))
         itemCellList.add(BtnCell(getString(R.string.swipe_refresh)))
         itemCellList.add(BtnCell(getString(R.string.draw_board)))
+        itemCellList.add(BtnCell(getString(R.string.draw_board)))
+        itemCellList.add(BtnCell(getString(R.string.camera_test)))
         mAdapter.submitList(itemCellList)
     }
 }

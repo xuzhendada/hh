@@ -1,7 +1,6 @@
 package com.hi.main.ui
 
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.view.Menu
 import android.view.MenuItem
 import com.hi.common.BaseActivity
@@ -10,6 +9,10 @@ import com.hi.main.R
 import com.hi.main.databinding.ActivityDrawBoardBinding
 import java.io.ByteArrayOutputStream
 
+/**
+ * 画板
+ * @author xuz
+ */
 class DrawBoardActivity : BaseActivity<ActivityDrawBoardBinding>() {
     override fun init() {
         toolbar(R.string.draw_board)

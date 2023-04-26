@@ -9,6 +9,9 @@ import android.view.View
 import androidx.annotation.ColorRes
 import kotlin.math.abs
 
+/**
+ * 画板
+ */
 class DrawingBoardView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {

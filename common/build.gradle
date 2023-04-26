@@ -73,6 +73,12 @@ dependencies {
     api compose_ui_preview
     api compose_navigation
     api swiperefreshlayout
+    api camera_core
+    api camera_camera2
+    api camera_lifecycle
+    api camera_video
+    api camera_view
+    api camera_extensions
     debugImplementation compose_ui_tooling
     testImplementation 'junit:junit:4.13.2'
 }

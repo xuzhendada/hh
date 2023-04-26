@@ -87,6 +87,14 @@ buildscript {
         compose_navigation = "androidx.navigation:navigation-compose:$nav_version"
         swiperefreshlayout_version = "1.1.0"
         swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout_version"
+        camerax_version = "1.2.2"
+        camera_core = "androidx.camera:camera-core:$camerax_version"
+        camera_camera2 = "androidx.camera:camera-camera2:$camerax_version"
+        camera_lifecycle = "androidx.camera:camera-lifecycle:$camerax_version"
+        camera_video = "androidx.camera:camera-video:${camerax_version}"
+        camera_view = "androidx.camera:camera-view:${camerax_version}"
+        camera_mlkit = "androidx.camera:camera-mlkit-vision:${camerax_version}"
+        camera_extensions = "androidx.camera:camera-extensions:${camerax_version}"
     }
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }

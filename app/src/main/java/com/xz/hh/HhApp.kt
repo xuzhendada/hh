@@ -2,12 +2,15 @@ package com.xz.hh
 
 import android.app.Application
 import android.content.ComponentCallbacks2
+import android.util.Log
+import androidx.camera.camera2.Camera2Config
+import androidx.camera.core.CameraXConfig
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class HhApp : Application() {
+class HhApp : Application(), CameraXConfig.Provider {
     override fun onCreate() {
         super.onCreate()
         ARouter.openLog()
@@ -29,4 +32,7 @@ class HhApp : Application() {
         //內存低的時候清空緩存
         Glide.get(this).clearMemory()
     }
+
+    override fun getCameraXConfig() =
+        CameraXConfig.Builder.fromConfig(Camera2Config.defaultConfig()).setMinimumLoggingLevel(Log.ERROR).build()
 }

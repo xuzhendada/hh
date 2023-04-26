@@ -38,7 +38,7 @@
                 android:id="@+id/toolbar"
                 app:layout_collapseMode="pin"
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize" />
+                android:layout_height="?android:actionBarSize" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.hi.common.widget.RadioAppLayout>
 
