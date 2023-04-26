@@ -71,6 +71,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
                             }
                         }
+
                     getString(R.string.request_permission) -> {
                         permissionsFactory.launch(
                             arrayOf(
@@ -86,6 +87,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                             }
                         }
                     }
+
                     getString(R.string.coordinator_layout) -> startActivity<TopFoldActivity>()
                     getString(R.string.page_layout) -> startActivity<PageRecyclerActivity>()
                     getString(R.string.hilt_network) -> hiltViewModel.getBanner()
@@ -93,6 +95,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         val intent = Intent(this@MainActivity, SmartRefreshActivity::class.java)
                         startActivity(intent)
                     }
+
                     getString(R.string.room_test) -> startActivity<RoomTestActivity>()
                     getString(R.string.select_img) -> startActivity<SelectImgActivity>()
                     getString(R.string.flow_layout) -> startActivity<FlowLayoutTestActivity>()
@@ -100,6 +103,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     getString(R.string.a_route) -> navigate(RouterPath.TEST_MAIN)
                     getString(R.string.time_line) -> startActivity<TimeLineActivity>()
                     getString(R.string.flow_layout2) -> startActivity<FlowLayoutActivity>()
+                    getString(R.string.swipe_refresh) -> startActivity<SwipeRefreshActivity>()
+                    getString(R.string.draw_board) -> startActivity<DrawBoardActivity>()
                 }
             }
         }
@@ -115,9 +120,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 is HhResult.Success<WanResponse<List<Banner>>> -> {
                     toast(it.value.data.toString())
                 }
+
                 is HhResult.Failure -> {
                     toast(it.throwable.toString())
                 }
+
                 else -> {}
             }
         }
@@ -138,6 +145,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         itemCellList.add(BtnCell(getString(R.string.a_route)))
         itemCellList.add(BtnCell(getString(R.string.flow_layout2)))
         itemCellList.add(BtnCell(getString(R.string.time_line)))
+        itemCellList.add(BtnCell(getString(R.string.swipe_refresh)))
+        itemCellList.add(BtnCell(getString(R.string.draw_board)))
         mAdapter.submitList(itemCellList)
     }
 }

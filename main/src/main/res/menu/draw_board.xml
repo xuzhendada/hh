@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/clear_all" android:title="@string/clear"/>
+    <item android:id="@+id/generate_img" android:title="@string/generate_img"/>
+    <item android:id="@+id/cancel" android:title="@string/cancel"/>
+</menu>
