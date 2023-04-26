@@ -72,6 +72,7 @@ dependencies {
     api compose_ui_test
     api compose_ui_preview
     api compose_navigation
+    api swiperefreshlayout
     debugImplementation compose_ui_tooling
     testImplementation 'junit:junit:4.13.2'
 }

@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/select_img"
-        android:title="选择图片" />
+        android:title="@string/select_img"/>
     <item
         android:id="@+id/clear_all"
-        android:title="清空" />
+        android:title="@string/clear"/>
 </menu>

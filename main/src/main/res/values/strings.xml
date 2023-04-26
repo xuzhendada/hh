@@ -13,4 +13,10 @@
     <string name="flow_layout2">流式布局2</string>
     <string name="a_route">阿里路由跳转</string>
     <string name="time_line">时间线</string>
+    <string name="swipe_refresh">SwipeRefresh</string>
+    <string name="draw_board">画板</string>
+    <string name="add_data">加载数据</string>
+    <string name="clear">清空</string>
+    <string name="generate_img">生成图片</string>
+    <string name="cancel">取消</string>
 </resources>

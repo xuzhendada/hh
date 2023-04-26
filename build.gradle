@@ -85,6 +85,8 @@ buildscript {
         compose_lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
         nav_version = "2.5.2"
         compose_navigation = "androidx.navigation:navigation-compose:$nav_version"
+        swiperefreshlayout_version = "1.1.0"
+        swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout_version"
     }
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
@@ -95,7 +97,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.10'
         classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0'
