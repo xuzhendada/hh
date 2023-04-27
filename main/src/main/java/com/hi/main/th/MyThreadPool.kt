@@ -20,10 +20,10 @@ class MyThreadPool private constructor() {
     companion object {
         fun getInstance() = SingleHolder.SINGLE_HOLDER
         private val CPU_COUNT = Runtime.getRuntime().availableProcessors()//cpu数量
-        val CPU_POOL_SIZE = CPU_COUNT + 1 //核心线程
-        val MAX_POOL_SIZE = CPU_COUNT * 2 + 1 //最大线程为cpu+1
-        const val KEEP_ALIVE_TIME = 3L //线程活跃时间 单位：秒  超时线程回收
-        const val QUEUE_SIZE = 128 //等待队列大小
+        private val CPU_POOL_SIZE = CPU_COUNT + 1 //核心线程
+        private val MAX_POOL_SIZE = CPU_COUNT * 2 + 1 //最大线程为cpu+1
+        private const val KEEP_ALIVE_TIME = 3L //线程活跃时间 单位：秒  超时线程回收
+        private const val QUEUE_SIZE = 128 //等待队列大小
     }
 
     private object SingleHolder {
