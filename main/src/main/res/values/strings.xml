@@ -21,4 +21,7 @@
     <string name="cancel">取消</string>
     <string name="camera_test">cameraX</string>
     <string name="start_camera">开启拍照</string>
+    <string name="download_str">start download</string>
+    <string name="download_name">weChat.apk</string>
+    <string name="apk_current_download">安装包正在下载</string>
 </resources>

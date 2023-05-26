@@ -1,6 +1,12 @@
 package com.hi.main.ui
 
+import android.app.DownloadManager
+import android.app.DownloadManager.Request
+import android.app.DownloadManager.Request.NETWORK_MOBILE
+import android.app.DownloadManager.Request.NETWORK_WIFI
 import android.content.Intent
+import android.net.Uri
+import android.os.Environment
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import androidx.lifecycle.MutableLiveData
@@ -106,6 +112,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     getString(R.string.swipe_refresh) -> startActivity<SwipeRefreshActivity>()
                     getString(R.string.draw_board) -> startActivity<DrawBoardActivity>()
                     getString(R.string.camera_test) -> startActivity<CameraXTestActivity>()
+                    getString(R.string.download_str) -> startDownload()
                 }
             }
         }
@@ -131,6 +138,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
 
+    private fun startDownload() {
+        val weChatDownloadUrl =
+            "https://1965b9738d6e9b4afedcf7436b647ed6.dlied1.cdntips.net/dldir1.qq.com/weixin/Windows/WeChatSetup.exe?mkey=6470701dde5eaa67&f=851f&cip=222.94.140.146&proto=https"
+        val weChatFileName = getString(R.string.download_str)
+        val uri = Uri.parse(weChatDownloadUrl)
+        val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+        val request = Request(uri)
+        request.apply {
+            setAllowedNetworkTypes(NETWORK_WIFI)
+            setAllowedOverRoaming(true)
+            setMimeType("apk/*")
+            setNotificationVisibility(Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            setTitle(weChatFileName)
+            setDescription(getString(R.string.apk_current_download))
+            setVisibleInDownloadsUi(true)
+            allowScanningByMediaScanner()
+            setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, weChatFileName)
+        }
+        downloadManager.enqueue(request)
+    }
+
     override fun viewDrawn() {
         super.viewDrawn()
         val itemCellList = mutableListOf<ItemCell>()
@@ -150,6 +178,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         itemCellList.add(BtnCell(getString(R.string.draw_board)))
         itemCellList.add(BtnCell(getString(R.string.draw_board)))
         itemCellList.add(BtnCell(getString(R.string.camera_test)))
+        itemCellList.add(BtnCell(getString(R.string.download_str)))
         mAdapter.submitList(itemCellList)
     }
 }
