@@ -176,7 +176,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         itemCellList.add(BtnCell(getString(R.string.time_line)))
         itemCellList.add(BtnCell(getString(R.string.swipe_refresh)))
         itemCellList.add(BtnCell(getString(R.string.draw_board)))
-        itemCellList.add(BtnCell(getString(R.string.draw_board)))
         itemCellList.add(BtnCell(getString(R.string.camera_test)))
         itemCellList.add(BtnCell(getString(R.string.download_str)))
         mAdapter.submitList(itemCellList)
