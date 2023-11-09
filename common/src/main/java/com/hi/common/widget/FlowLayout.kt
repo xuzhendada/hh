@@ -1,5 +1,7 @@
 package com.hi.common.widget
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
@@ -105,5 +107,19 @@ class FlowLayout @JvmOverloads constructor(
 
     override fun generateLayoutParams(attrs: AttributeSet?): LayoutParams {
         return MarginLayoutParams(context, attrs)
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+//        val  valueAn:ValueAnimator = ObjectAnimator.ofFloat(0f,1f)
+//        valueAn.setDuration(500)
+//        valueAn.addUpdateListener {
+//            val f = it.animatedValue as Float
+//            val new =(w - oldw) *f+oldw
+//            background.setBounds(left = 0 , right = )
+//            background.invalidateSelf()
+//            invalidate()
+//        }
+//        valueAn.start()
     }
 }

@@ -1,5 +1,6 @@
 package com.hi.main.ui
 
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.hi.common.BaseActivity
